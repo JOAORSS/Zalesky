@@ -190,6 +190,7 @@
 {% elseif section_select == 'zaleski_hero' %}
 
 	{#  **** Zaleski - Hero Banner estático ****  #}
+	{% set head_transparent_section = has_hero_banner and settings.head_transparent %}
 	{% include 'snipplets/home/home-hero.tpl' %}
 
 {% endif %}

@@ -1,6 +1,6 @@
 {# snipplets/home/home-hero.tpl #}
 {% if settings.show_hero_banner %}
-    <section class="zaleski-hero-section" data-store="home-zaleski-hero">
+    <section class="zaleski-hero-section" data-store="home-zaleski-hero" {% if head_transparent_section %}data-header-type="transparent-on-section"{% endif %}>
         <div class="zaleski-hero-container">
             {# Imagem Desktop — carregamento prioritário (LCP) #}
             {% if "hero_image_desktop.jpg" | has_custom_image %}
