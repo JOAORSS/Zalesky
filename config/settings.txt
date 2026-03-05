@@ -366,6 +366,9 @@ Encabezado
 	checkbox
 		name = ad_bar_animate
 		description = Animar texto de derecha a izquierda
+	checkbox
+		name = zaleski_marquee
+		description = Usar animação marquee (substitui o modo padrão acima)
 	subtitle
 		subtitle = Mensaje 1
 	i18n_input
@@ -1024,6 +1027,67 @@ Página de inicio
 	subtitle
 		subtitle = <span class='legend'>El texto y link del botón no se van a mostrar si está habilitada la suscripción al newsletter</span>
 	collapse
+		title = Hero Banner
+		backto = home_order_position
+	checkbox
+		name = show_hero_banner
+		default = true
+		description = Mostrar hero banner
+	image
+		title = Imagem Desktop
+		original = hero_image_desktop.jpg
+		width = 1920
+		height = 1080
+	image
+		title = Imagem Mobile
+		original = hero_image_mobile.jpg
+		width = 820
+		height = 1200
+	i18n_input
+		name = hero_title
+		description = Título
+	i18n_input
+		name = hero_subtitle
+		description = Subtítulo
+	i18n_input
+		name = hero_button_text
+		description = Texto do botão
+	i18n_input
+		name = hero_button_url
+		description = Link do botão
+	i18n_input
+		name = hero_overlay_opacity
+		description = Opacidade do overlay (0 a 1, ex: 0.4)
+
+	collapse
+		title = Barra de Benefícios
+		backto = home_order_position
+	checkbox
+		name = show_benefits
+		default = true
+		description = Mostrar barra de benefícios
+	subtitle
+		subtitle = Benefício 1
+	i18n_input
+		name = benefit_1_text
+		description = Texto do benefício 1
+	subtitle
+		subtitle = Benefício 2
+	i18n_input
+		name = benefit_2_text
+		description = Texto do benefício 2
+	subtitle
+		subtitle = Benefício 3
+	i18n_input
+		name = benefit_3_text
+		description = Texto do benefício 3
+	subtitle
+		subtitle = Benefício 4
+	i18n_input
+		name = benefit_4_text
+		description = Texto do benefício 4
+
+	collapse
 		title = Página de inicio
 		backto = _top
 	section_order
@@ -1048,6 +1112,8 @@ Página de inicio
 			testimonials = Testimonios
 			brands = Marcas
 			modules = Módulos de imagen y texto
+			zaleski_benefits = Barra de Benefícios
+			zaleski_hero = Hero Banner
 	link
 		text = Pop-up promocional
 		linkto = home_promotional_popup
@@ -1355,32 +1421,3 @@ Edición avanzada de CSS
 		description = Acá podes escribir código CSS para que se muestre en tu tienda
 	subtitle
 		subtitle = <a target='_blank' href='https://ayuda.tiendanube.com/es_ES/123225-edicion-avanzada-de-css/como-editar-el-diseno-con-codigo-css'>¿Cómo edito el código CSS de mi tienda?</a>
-
-Barra de Anuncios (Zaleski)
-	meta
-		icon = bullhorn
-		advanced = false
-	checkbox
-		name = show_announcement_bar
-		description = Mostrar barra de anuncio en el encabezado
-	color
-		name = color_marquee_bg
-		description = Color de fondo de la barra
-	color
-		name = color_marquee_text
-		description = Color de los textos
-	text
-		name = marquee_speed
-		description = Velocidad de la animación (ej: 25s, 15s)
-	text
-		name = announcement_text_1
-		description = Mensaje 1
-	text
-		name = announcement_text_2
-		description = Mensaje 2
-	text
-		name = announcement_text_3
-		description = Mensaje 3
-	text
-		name = announcement_text_4
-		description = Mensaje 4

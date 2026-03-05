@@ -1371,9 +1371,10 @@ footer {
     display: inline-block;
     width: 40px;
     height: 30px;
-    appearance: none;
     font-size: 16px;
     text-align: center;
+    -moz-appearance:textfield;
+    appearance:textfield;
     &::-webkit-outer-spin-button,
     &::-webkit-inner-spin-button{
       -webkit-appearance: none;
@@ -1397,12 +1398,6 @@ footer {
       padding-right:0; 
     }
   }
-}
-
-.my-widget {
-  -moz-appearance: none;
-  appearance: none;
-  -webkit-appearance: none;
 }
 
 .cart-quantity-input-container i{
@@ -1468,6 +1463,103 @@ footer {
   &-icon {
     position: absolute;
     left: 0;
+  }
+}
+
+/* // Hero Banner - Zaleski */
+
+.zaleski-hero-section {
+  position: relative;
+  width: 100%;
+  height: 70vh; /* mobile-first */
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+.zaleski-hero-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.zaleski-hero-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Mobile-first: desktop image hidden by default, mobile shown */
+.zaleski-hero-img-desktop {
+  display: none;
+}
+
+.zaleski-hero-img-mobile {
+  display: block;
+}
+
+.zaleski-hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.zaleski-hero-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  text-align: center;
+  width: 90%;
+  max-width: 800px;
+  padding: 20px;
+  color: #fff;
+}
+
+.zaleski-hero-title {
+  font-size: 28px;
+  font-weight: 700;
+  margin: 0 0 12px 0;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  line-height: 1.2;
+}
+
+.zaleski-hero-subtitle {
+  font-size: 16px;
+  font-weight: 300;
+  margin: 0 0 24px 0;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.5;
+}
+
+.zaleski-hero-btn {
+  display: inline-block;
+  padding: 14px 40px;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #000;
+  background-color: #fff;
+  border: none;
+  text-decoration: none;
+  cursor: pointer;
+  @include prefix(transition, all 0.3s ease, webkit ms moz o);
+
+  &:hover {
+    background-color: #000;
+    color: #fff;
   }
 }
 
@@ -1676,6 +1768,33 @@ footer {
     padding: 120px 0;
   }
 
+  /* Hero Banner desktop */
+  .zaleski-hero-section {
+    height: 100vh;
+  }
+
+  .zaleski-hero-img-desktop {
+    display: block;
+  }
+
+  .zaleski-hero-img-mobile {
+    display: none;
+  }
+
+  .zaleski-hero-title {
+    font-size: 48px;
+    letter-spacing: 4px;
+  }
+
+  .zaleski-hero-subtitle {
+    font-size: 20px;
+  }
+
+  .zaleski-hero-btn {
+    padding: 16px 50px;
+    font-size: 15px;
+  }
+
   /* //// Footer */
 
   .footer form .newsletter-btn {
@@ -1704,177 +1823,232 @@ footer {
   display: block!important;
 }
 
-/*============================================================================
-  Índice
-  
-  #ZALESKI-EXTENSIONS (Novas funcionalidades)
-  #Components
-  #Header and nav
-  #Footer
-  #Home page
-  #Product grid
-  #Product detail
-  #Cart detail
-  #Media queries
-==============================================================================*/
+/* ============================================================
+   ZALESKI — Hero Slider
+   Adicionar ao final de static/css/style-async.scss
+   ============================================================ */
 
-/*============================================================================
-  #Zaleski Custom - Announcement Bar Marquee
-==============================================================================*/
-
-.zaleski-announcement-bar {
-  overflow: hidden;
-  padding: 8px 0;
-  font-size: 12px;
-  font-weight: 500;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  position: relative;
-  z-index: 1001;
-  border-bottom: 1px solid rgba(0,0,0,0.05);
-
-  .zaleski-marquee-wrapper {
-    display: flex;
-    overflow: hidden;
-    user-select: none;
-  }
-
-  .zaleski-marquee-content {
-    display: flex;
-    flex-shrink: 0;
-    min-width: 100%;
-    animation: zaleski-marquee linear infinite;
-    align-items: center;
-  }
-
-  .zaleski-marquee-group {
-    display: flex;
-    flex-shrink: 0;
-    align-items: center;
-    justify-content: space-around;
-    white-space: nowrap;
-  }
-
-  .zaleski-marquee-item {
-    margin: 0 20px;
-  }
-
-  .zaleski-marquee-sep {
-    font-size: 18px;
-    opacity: 0.5;
-  }
+.zaleski-hero-container .container-fluid,
+.zaleski-hero-container .row,
+.zaleski-hero-container .col {
+    padding: 0;
+    margin: 0;
+    max-width: 100%;
 }
 
-@keyframes zaleski-marquee {
-  from {
-    transform: translate3D(0);
-  }
-  to {
-    transform: translate3D(-50%);
-  }
+.zaleski-hero-swiper,
+.zaleski-hero-slide,
+.zaleski-hero-slide .slider-slide {
+    height: 100vh;
 }
 
-/* Garante que o conteúdo não quebre em telas muito pequenas */
-@media (max-width: 767px) {
-  .zaleski-announcement-bar {
-    font-size: 10px;
-    padding: 6px 0;
-  }
-}
-
-/*============================================================================
-  #Zaleski Custom - Hero Banner Fullscreen
-==============================================================================*/
-
-.zaleski-hero {
-  position: relative;
-  width: 100%;
-  height: 100vh; /* Default desktop */
-  overflow: hidden;
-  margin-bottom: 50px;
-
-  .zaleski-hero-container {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .zaleski-hero-picture {
+.zaleski-hero-image {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-  }
-
-  .zaleski-hero-img {
+    top: 0; left: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
     object-position: center;
-  }
+}
 
-  .zaleski-hero-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 2;
-  }
-
-  .zaleski-hero-content {
+.zaleski-hero-slide .slider-slide {
     position: relative;
-    z-index: 3;
-    color: #fff; /* Hero content is usually white for dark overlays */
-  }
+    overflow: hidden;
+}
 
-  .zaleski-hero-title {
-    font-size: 48px;
+/* Overlay escuro sobre a imagem */
+.zaleski-hero-slide .slider-slide::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.25);
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Texto centralizado sobre a imagem */
+.zaleski-hero-content.swiper-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    text-align: center;
+    width: 90%;
+    max-width: 800px;
+    padding: 20px;
+}
+
+.zaleski-hero-title {
+    font-size: 3.5rem !important;
     font-weight: 700;
-    line-height: 1.2;
     text-transform: uppercase;
     letter-spacing: 2px;
-  }
+    line-height: 1.1;
+}
 
-  .zaleski-hero-subtitle {
-    font-size: 18px;
-    font-weight: 400;
-    max-width: 600px;
-    margin: 0 auto;
-    opacity: 0.9;
-  }
+.zaleski-hero-subtitle {
+    font-size: 1.25rem;
+    font-weight: 300;
+}
 
-  .zaleski-hero-btn {
-    padding: 15px 40px;
-    font-size: 14px;
+.zaleski-hero-btn {
+    font-size: 0.9rem !important;
+    font-weight: 600 !important;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 14px 35px !important;
+    border-radius: 2px !important;
+}
+
+.zaleski-hero-pagination {
+    bottom: 30px !important;
+    z-index: 10;
+}
+
+.zaleski-hero-nav {
+    opacity: 0.7;
+    transition: opacity 0.3s;
+}
+.zaleski-hero-nav:hover {
+    opacity: 1;
+}
+
+@media (max-width: 767px) {
+    .zaleski-hero-swiper,
+    .zaleski-hero-slide,
+    .zaleski-hero-slide .slider-slide {
+        height: 70vh;
+    }
+    .zaleski-hero-title {
+        font-size: 2rem !important;
+    }
+    .zaleski-hero-subtitle {
+        font-size: 1rem;
+    }
+}
+
+
+/* ============================================================
+   ZALESKI — Banners Grid (categorias)
+   Adicionar ao final de static/css/style-async.scss
+   ============================================================ */
+
+/* Container geral da seção */
+.zaleski-banners-section {
+    margin-top: 60px;
+    margin-bottom: 60px;
+}
+
+/* Item do banner — hover zoom na imagem */
+.zaleski-banner-item {
+    overflow: hidden;
+    border-radius: 4px;
+}
+
+.zaleski-banner-item .zaleski-banner-img {
+    transition: transform 0.8s ease;
+}
+
+.zaleski-banner-item:hover .zaleski-banner-img {
+    transform: scale(1.05);
+}
+
+/* Overlay no hover */
+.zaleski-banner-item .textbanner-image.overlay::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.18);
+    transition: background 0.4s ease;
+    pointer-events: none;
+}
+
+.zaleski-banner-item:hover .textbanner-image.overlay::after {
+    background: rgba(0, 0, 0, 0.32);
+}
+
+/* Texto sobre a imagem */
+.zaleski-banner-content.over-image {
+    bottom: 50px;
+    left: 50px;
+    right: auto;
+    top: auto;
+}
+
+/* Título */
+.zaleski-banner-title {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Botão sublinhado estilo Zaleski */
+.zaleski-banner-content .btn-secondary {
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid currentColor;
+    border-radius: 0;
+    padding: 0 0 4px 0;
+    font-size: 0.85rem;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 1px;
-    transition: all 0.3s ease;
-    
-    &:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-    }
-  }
 }
 
-/* Responsividade Mobile */
 @media (max-width: 767px) {
-  .zaleski-hero {
-    height: 70vh; /* Mobile height */
-    
-    .zaleski-hero-title {
-      font-size: 32px;
+    .zaleski-banners-section {
+        margin-top: 30px;
+        margin-bottom: 30px;
     }
-    
-    .zaleski-hero-subtitle {
-      font-size: 16px;
+
+    .zaleski-banner-content.over-image {
+        bottom: 30px;
+        left: 25px;
     }
-  }
+}
+
+
+
+/* ============================================================
+   ZALESKI — Barra de Anúncio (estilo sobre a nativa do tema)
+   Adicionar ao final de static/css/style-async.scss
+   ============================================================ */
+
+/* Container principal da barra nativa */
+.adbar-container,
+.js-adbar-container {
+    background-color: var(--zaleski-adbar-bg, #1a1a1a) !important;
+    color: var(--zaleski-adbar-color, #ffffff) !important;
+    padding: 9px 0 !important;
+}
+
+/* Texto de cada mensagem */
+.adbar-message {
+    font-size: 11px !important;
+    font-weight: 500 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1.5px !important;
+    color: inherit !important;
+    /* Remove espaçamento desproporcional — o JS já distribui as cópias */
+    margin-right: 60px !important;
+}
+
+/* Garante que links herdam a cor */
+.adbar-message a,
+.adbar-link {
+    color: inherit !important;
+    text-decoration: none !important;
+}
+
+.adbar-message a:hover {
+    opacity: 0.75;
+}
+
+@media (max-width: 767px) {
+    .adbar-message {
+        font-size: 10px !important;
+        margin-right: 40px !important;
+        letter-spacing: 1px !important;
+    }
 }

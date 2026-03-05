@@ -47,7 +47,7 @@
 {% endif %}
 
 {{ component('subscriptions/subscription-price', {
-    location: is_subscription_only_product ? 'product_detail' : '',
+    location: is_subscription_only_product ? 'product_detail',
     subscription_classes: {
         container: 'mb-3',
         prices_container: 'mb-1',
