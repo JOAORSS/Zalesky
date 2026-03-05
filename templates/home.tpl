@@ -17,8 +17,9 @@
 {% set has_testimonial_03 = settings.testimonial_03_description or settings.testimonial_03_name or "testimonial_03.jpg" | has_custom_image %}
 {% set has_testimonials = has_testimonial_01 or has_testimonial_02 or has_testimonial_03 %}
 {% set has_brands = settings.brands and settings.brands is not empty %}
+{% set has_hero_banner = settings.show_hero_banner and ("hero_image_desktop.jpg" | has_custom_image or "hero_image_mobile.jpg" | has_custom_image) %}
 
-{% set show_help = not (has_main_slider or has_mobile_slider or has_video or has_main_categories or has_banners or has_promotional_banners or has_news_banners or has_image_and_text_module or has_informative_banners or has_instafeed or has_welcome_message or has_institutional_message or has_testimonials or has_brands) and not has_products %}
+{% set show_help = not (has_main_slider or has_mobile_slider or has_video or has_main_categories or has_banners or has_promotional_banners or has_news_banners or has_image_and_text_module or has_informative_banners or has_instafeed or has_welcome_message or has_institutional_message or has_testimonials or has_brands or has_hero_banner) and not has_products %}
 
 {% set show_component_help = params.preview %}
 
