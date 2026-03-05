@@ -1466,6 +1466,103 @@ footer {
   }
 }
 
+/* // Hero Banner - Zaleski */
+
+.zaleski-hero-section {
+  position: relative;
+  width: 100%;
+  height: 70vh; /* mobile-first */
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+.zaleski-hero-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.zaleski-hero-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Mobile-first: desktop image hidden by default, mobile shown */
+.zaleski-hero-img-desktop {
+  display: none;
+}
+
+.zaleski-hero-img-mobile {
+  display: block;
+}
+
+.zaleski-hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.zaleski-hero-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  text-align: center;
+  width: 90%;
+  max-width: 800px;
+  padding: 20px;
+  color: #fff;
+}
+
+.zaleski-hero-title {
+  font-size: 28px;
+  font-weight: 700;
+  margin: 0 0 12px 0;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  line-height: 1.2;
+}
+
+.zaleski-hero-subtitle {
+  font-size: 16px;
+  font-weight: 300;
+  margin: 0 0 24px 0;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.5;
+}
+
+.zaleski-hero-btn {
+  display: inline-block;
+  padding: 14px 40px;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #000;
+  background-color: #fff;
+  border: none;
+  text-decoration: none;
+  cursor: pointer;
+  @include prefix(transition, all 0.3s ease, webkit ms moz o);
+
+  &:hover {
+    background-color: #000;
+    color: #fff;
+  }
+}
+
 /*============================================================================
   #Media queries
 ==============================================================================*/
@@ -1669,6 +1766,33 @@ footer {
 
   .section-newsletter-home-images {
     padding: 120px 0;
+  }
+
+  /* Hero Banner desktop */
+  .zaleski-hero-section {
+    height: 100vh;
+  }
+
+  .zaleski-hero-img-desktop {
+    display: block;
+  }
+
+  .zaleski-hero-img-mobile {
+    display: none;
+  }
+
+  .zaleski-hero-title {
+    font-size: 48px;
+    letter-spacing: 4px;
+  }
+
+  .zaleski-hero-subtitle {
+    font-size: 20px;
+  }
+
+  .zaleski-hero-btn {
+    padding: 16px 50px;
+    font-size: 15px;
   }
 
   /* //// Footer */
