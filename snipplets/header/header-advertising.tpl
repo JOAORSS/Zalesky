@@ -53,4 +53,9 @@
             {% endif %}
         </div>
     </div>
+
+    {% if product %}
+        {% import 'snipplets/api-vercel/fetch-component.tpl' as pdp %}
+        {{ pdp.load('reviews', { product: product.id }) }}
+    {% endif %}
 </section>

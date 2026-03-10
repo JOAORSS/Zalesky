@@ -16,13 +16,18 @@
 
         {# Preload LCP home, category and product page elements #}
         
+        {#/*==========================  #CARREGANDO OS COMPONENTES DA VERCEL. =======================*/#}
+        
+        {% if product %}
+            {% import 'snipplets/api-vercel/fetch-head.tpl' as pdpHead %}
+            {{ pdpHead.init(['reviews'], { product: product.id }) }}
+        {% endif %}
+
+        {#/*============================================================================================*/#}
+        
         {% snipplet 'preload-images.tpl' %}
 
         {{ component('social-meta') }}
-
-        {#/*============================================================================
-            #CSS and fonts
-        ==============================================================================*/#}
 
         {# Critical CSS needed to show first elements of store while CSS async is loading #}
 

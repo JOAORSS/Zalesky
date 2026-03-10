@@ -3,6 +3,12 @@
 {% else %}
 	{% set show_thumbs = not settings.scroll_product_images and (product.media_count > 1 or product.video_url) %}
 {% endif %}
+
+<script>
+	console.log('product', {{ product | json_encode | raw }})
+	console.log('template', '{{ template }}')
+</script>
+
 <div class="row" data-store="product-image-{{ product.id }}"> 
 	{% if show_thumbs %}
 		<div class="{% if home_main_product %}col-auto{% else %}col-2{% endif %} d-none d-md-block">

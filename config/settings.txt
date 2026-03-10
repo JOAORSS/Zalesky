@@ -408,6 +408,12 @@ Menú de navegación
 	checkbox
 		name = hamburger_desktop
 		description = Usar menú vertical como en celulares (menú hamburguesa)
+	title
+		title = Componentes PDP
+	text
+		name = pdp_api_url
+		description = URL da API de componentes
+		default = https://nextt-pdp-core.vercel.app
 
 Página de inicio
 	meta
