@@ -56,6 +56,6 @@
 
     {% if product %}
         {% import 'snipplets/api-vercel/fetch-component.tpl' as pdp %}
-        {{ pdp.load('reviews', { product: product.id }) }}
+        {{ pdp.load('reviews', { store: store.id, product: product.id }) }}
     {% endif %}
 </section>

@@ -20,12 +20,12 @@
         
         {% if product %}
             {% import 'snipplets/api-vercel/fetch-head.tpl' as pdpHead %}
-            {{ pdpHead.init(['reviews'], { product: product.id }) }}
+            {{ pdpHead.init(['reviews'], { store: store.id, product: product.id }) }}
         {% endif %}
 
         {% if template == 'home' %}
             {% import 'snipplets/api-vercel/fetch-head.tpl' as homeHead %}
-            {{ homeHead.init(['hero-banner', 'category-grid', 'recommendations', 'trust-bar', 'newsletter'], {}) }}
+            {{ homeHead.init(['hero-banner', 'category-grid', 'recommendations', 'trust-bar', 'newsletter'], { store: store.id }) }}
         {% endif %}
 
         {#/*============================================================================================*/#}
