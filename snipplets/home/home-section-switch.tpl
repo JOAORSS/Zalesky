@@ -179,17 +179,4 @@
 		{% endif %}
 	</section>
 
-
-{% elseif section_select == 'zaleski_benefits' %}
-
-	{#  **** Zaleski - Barra de Benefícios ****  #}
-	<section class="section-zaleski-benefits" data-store="home-zaleski-benefits">
-		{% include 'snipplets/home/zaleski-benefits.tpl' %}
-	</section>
-
-{% elseif section_select == 'zaleski_hero' %}
-
-	{#  **** Zaleski - Hero Banner estático ****  #}
-	{% include 'snipplets/home/home-hero.tpl' %}
-
 {% endif %}

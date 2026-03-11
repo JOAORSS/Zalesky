@@ -65,7 +65,7 @@
 {% set banner_button_prev_classes = module ? 'ml-3' %}
 {% set banner_button_next_classes = module ? 'mr-3' %}
 
-<div class="js-{{ section_id }} zaleski-banners-section container{% if not module %}-fluid{% endif %} {% if not module and (has_banners and has_mobile_banners) %}{% if mobile %}d-md-none{% else %}d-none d-md-block{% endif %}{% endif %}">
+<div class="js-{{ section_id }} container{% if not module %}-fluid{% endif %} {% if not module and (has_banners and has_mobile_banners) %}{% if mobile %}d-md-none{% else %}d-none d-md-block{% endif %}{% endif %}">
     <div class="row">
         <div class="js-banner-col col-12 {% if section_slider or module %}p-0{% else %}pl-0{% endif %}">
             {% if section_slider %}
@@ -76,10 +76,10 @@
             {% endif %}
             {% for slide in section_banner %}
                 {% if not module or (module and (section_slider or theme_editor)) %}
-                    <div class="js-live-preview-banner banner-container zaleski-banner-item {% if section_slider %}swiper-slide slide-container{% else %}grid-item {% if section_columns_mobile_2 %}col-6 banner-2-cols {% endif %}{% if section_columns_desktop_4 %}col-md-3{% elseif section_columns_desktop_3 %}col-md-4{% elseif section_columns_desktop_2 %}col-md-6{% elseif section_columns_desktop_1 %}col-md-12{% endif %}{% endif %}" data-transition="fade-in-up">
+                    <div class="js-live-preview-banner banner-container {% if section_slider %}swiper-slide slide-container{% else %}grid-item {% if section_columns_mobile_2 %}col-6 banner-2-cols {% endif %}{% if section_columns_desktop_4 %}col-md-3{% elseif section_columns_desktop_3 %}col-md-4{% elseif section_columns_desktop_2 %}col-md-6{% elseif section_columns_desktop_1 %}col-md-12{% endif %}{% endif %}" data-transition="fade-in-up">
                 {% endif %}
                     {% set has_banner_text = slide.title or slide.description or slide.button %}
-                    <div class="js-textbanner textbanner zaleski-textbanner {{ banner_classes }}">
+                    <div class="js-textbanner textbanner {{ banner_classes }}">
                         {% if slide.link %}
                             <a href="{{ slide.link | setting_url }}" class="textbanner-link" aria-label="{{ 'Carrusel' | translate }} {{ loop.index }}">
                         {% endif %}
@@ -113,7 +113,7 @@
                                 data-expand="-10"
                                 {% endif %}
                                 {% if apply_lazy_load %}data-{% endif %}srcset="{{ slide.image | static_url | settings_image_url('large') }} 480w, {{ slide.image | static_url | settings_image_url('huge') }} 640w, {{ slide.image | static_url | settings_image_url('original') }} 1024w, {{ slide.image | static_url | settings_image_url('1080p') }} 1920w" 
-                                class="textbanner-image-effect zaleski-banner-img {% if section_same_size %}textbanner-image-background{% else %}img-fluid d-block w-100{% endif %} {% if apply_lazy_load %}lazyautosizes lazyload fade-in{% endif %}" 
+                                class="textbanner-image-effect {% if section_same_size %}textbanner-image-background{% else %}img-fluid d-block w-100{% endif %} {% if apply_lazy_load %}lazyautosizes lazyload fade-in{% endif %}" 
                                 {% if slide.title %}alt="{{ banner_title }}"{% else %}alt="{{ 'Banner de' | translate }} {{ store.name }}"{% endif %} 
                             />
                             {% if apply_lazy_load %}
@@ -123,9 +123,9 @@
                             </div>
                         {% endif %}
                         {% if has_banner_text %}
-                            <div class="js-textbanner-text textbanner-text zaleski-banner-content{% if module %} textbanner-module col-md-6 px-3 text-center {% if not section_slider and loop.index is even %}order-md-first{% endif %}{% else %}{% if not section_text_outside %} over-image{% endif %}{% if slide.link %} pr-5{% endif %}{% endif %}">
+                            <div class="js-textbanner-text textbanner-text{% if module %} textbanner-module col-md-6 px-3 text-center {% if not section_slider and loop.index is even %}order-md-first{% endif %}{% else %}{% if not section_text_outside %} over-image{% endif %}{% if slide.link %} pr-5{% endif %}{% endif %}">
                                 {% if slide.title %}
-                                    <h3 class="js-banner-title zaleski-banner-title {{ banner_title_classes }}">{{ slide.title }}</h3>
+                                    <h3 class="js-banner-title {{ banner_title_classes }}">{{ slide.title }}</h3>
                                 {% endif %}
                                 {% if slide.description %}
                                     <div class="{{ banner_description_classes }}">{{ slide.description }}</div>

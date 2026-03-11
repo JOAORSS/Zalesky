@@ -29,6 +29,10 @@
 
         {{ component('social-meta') }}
 
+        {#/*============================================================================
+            #CSS and fonts
+        ==============================================================================*/#}
+
         {# Critical CSS needed to show first elements of store while CSS async is loading #}
 
         <style>
@@ -121,9 +125,6 @@
         {{back_to_admin}}
 
         {# Header = Advertising + Nav + Logo + Search + Ajax Cart #}
-
-
-        {# Zaleski - estilo da barra de anúncio nativa definido no style-async.scss #}
 
         {% snipplet "header/header.tpl" %}
 
