@@ -183,10 +183,10 @@
 
 	{#  **** Zaleski API components (Vercel) ****  #}
 	{% import 'snipplets/api-vercel/fetch-component.tpl' as apiComponent %}
-	{{ apiComponent.load('hero-banner') }}
-	{{ apiComponent.load('category-grid') }}
-	{{ apiComponent.load('recommendations') }}
-	{{ apiComponent.load('trust-bar') }}
-	{{ apiComponent.load('newsletter') }}
+	{{ apiComponent.load('hero-banner', { store: store.id }) }}
+	{{ apiComponent.load('category-grid', { store: store.id }) }}
+	{{ apiComponent.load('recommendations', { store: store.id }) }}
+	{{ apiComponent.load('trust-bar', { store: store.id }) }}
+	{{ apiComponent.load('newsletter', { store: store.id }) }}
 
 {% endif %}
