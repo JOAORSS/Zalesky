@@ -23,6 +23,11 @@
             {{ pdpHead.init(['reviews'], { product: product.id }) }}
         {% endif %}
 
+        {% if template == 'home' %}
+            {% import 'snipplets/api-vercel/fetch-head.tpl' as homeHead %}
+            {{ homeHead.init(['hero-banner', 'category-grid', 'recommendations', 'trust-bar', 'newsletter'], {}) }}
+        {% endif %}
+
         {#/*============================================================================================*/#}
         
         {% snipplet 'preload-images.tpl' %}
