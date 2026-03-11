@@ -1118,8 +1118,11 @@ Página de inicio
 			testimonials = Testimonios
 			brands = Marcas
 			modules = Módulos de imagen y texto
-			zaleski_benefits = Barra de Benefícios
-			zaleski_hero = Hero Banner
+			zaleski_hero_banner = Zaleski: Hero Banner
+			zaleski_category_grid = Zaleski: Grade de Categorias
+			zaleski_trust_bar = Zaleski: Barra de Benefícios
+			zaleski_newsletter = Zaleski: Newsletter
+			zaleski_recommendations = Zaleski: Recomendações de Produtos
 	link
 		text = Pop-up promocional
 		linkto = home_promotional_popup

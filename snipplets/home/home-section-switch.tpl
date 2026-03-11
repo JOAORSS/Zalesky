@@ -179,14 +179,35 @@
 		{% endif %}
 	</section>
 
-{% elseif section_select == 'zaleski_api' %}
+{% elseif section_select == 'zaleski_hero_banner' %}
 
-	{#  **** Zaleski API components (Vercel) ****  #}
-	{% import 'snipplets/api-vercel/fetch-component.tpl' as apiComponent %}
-	{{ apiComponent.load('hero-banner', { store: store.id }) }}
-	{{ apiComponent.load('category-grid', { store: store.id }) }}
-	{{ apiComponent.load('recommendations', { store: store.id }) }}
-	{{ apiComponent.load('trust-bar', { store: store.id }) }}
-	{{ apiComponent.load('newsletter', { store: store.id }) }}
+    {# **** Zaleski: Hero Banner **** #}
+    {% import 'snipplets/api-vercel/fetch-component.tpl' as zaleskiComponent %}
+    {{ zaleskiComponent.load('hero-banner') }}
+
+{% elseif section_select == 'zaleski_category_grid' %}
+
+    {# **** Zaleski: Grade de Categorias **** #}
+    {% import 'snipplets/api-vercel/fetch-component.tpl' as zaleskiComponent %}
+    {{ zaleskiComponent.load('category-grid') }}
+
+{% elseif section_select == 'zaleski_trust_bar' %}
+
+    {# **** Zaleski: Barra de Benefícios **** #}
+    {% import 'snipplets/api-vercel/fetch-component.tpl' as zaleskiComponent %}
+    {{ zaleskiComponent.load('trust-bar') }}
+
+{% elseif section_select == 'zaleski_newsletter' %}
+
+    {# **** Zaleski: Newsletter **** #}
+    {% import 'snipplets/api-vercel/fetch-component.tpl' as zaleskiComponent %}
+    {{ zaleskiComponent.load('newsletter') }}
+
+{% elseif section_select == 'zaleski_recommendations' %}
+
+    {# **** Zaleski: Recomendações **** #}
+    {% import 'snipplets/api-vercel/fetch-component.tpl' as zaleskiComponent %}
+    {{ zaleskiComponent.load('recommendations') }}
 
 {% endif %}
+

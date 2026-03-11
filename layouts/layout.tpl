@@ -25,7 +25,7 @@
 
         {% if template == 'home' %}
             {% import 'snipplets/api-vercel/fetch-head.tpl' as homeHead %}
-            {{ homeHead.init(['hero-banner', 'category-grid', 'recommendations', 'trust-bar', 'newsletter'], { store: store.id }) }}
+            {{ homeHead.init(['hero-banner', 'category-grid', 'recommendations', 'trust-bar', 'newsletter']) }}
         {% endif %}
 
         {#/*============================================================================================*/#}
