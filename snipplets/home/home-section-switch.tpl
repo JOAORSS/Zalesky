@@ -179,4 +179,14 @@
 		{% endif %}
 	</section>
 
+{% elseif section_select == 'zaleski_api' %}
+
+	{#  **** Zaleski API components (Vercel) ****  #}
+	{% import 'snipplets/api-vercel/fetch-component.tpl' as apiComponent %}
+	{{ apiComponent.load('hero-banner') }}
+	{{ apiComponent.load('category-grid') }}
+	{{ apiComponent.load('recommendations') }}
+	{{ apiComponent.load('trust-bar') }}
+	{{ apiComponent.load('newsletter') }}
+
 {% endif %}
