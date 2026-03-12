@@ -199,6 +199,8 @@
 
 {% elseif section_select == 'zaleski_newsletter' %}
 
+	<p>PELO AMOR FUNCITONA</p>
+
     {# **** Zaleski: Newsletter **** #}
     {% import 'snipplets/api-vercel/fetch-component.tpl' as zaleskiComponent %}
     {{ zaleskiComponent.load('newsletter') }}
