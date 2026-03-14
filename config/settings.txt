@@ -1123,6 +1123,26 @@ Página de inicio
 			zaleski_trust_bar = Zaleski: Barra de Benefícios
 			zaleski_newsletter = Zaleski: Newsletter
 			zaleski_recommendations = Zaleski: Recomendações de Produtos
+	collapse
+		title = Zaleski: Hero Banner
+		backto = home_order_position
+	i18n_input
+		name = zaleski_hero_title
+		description = Título
+	i18n_input
+		name = zaleski_hero_subtitle
+		description = Subtítulo
+	i18n_input
+		name = zaleski_hero_button_text
+		description = Texto do botão principal
+	i18n_input
+		name = zaleski_hero_button_url
+		description = Link do botão principal
+	image
+		title = Cargar imagen (JPG, GIF, PNG)
+		original = zaleski_hero_image.jpg
+		width = 1920
+		height = 1080
 	link
 		text = Pop-up promocional
 		linkto = home_promotional_popup

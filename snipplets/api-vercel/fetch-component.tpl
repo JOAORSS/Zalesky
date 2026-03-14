@@ -16,10 +16,7 @@
         var existing = window.__pdp && window.__pdp['{{ component }}'];
         var promise = existing ? existing : fetch('{{ api }}/api/{{ component }}{{ query ? '?' ~ query : '' }}')
                                               .then(function(r) { return r.text(); });
-        promise.then(function(html) {
-          console.log(html);
-          target.innerHTML = html;
-        });
+        promise.then(function(html) { target.innerHTML = html; });
       })();
     </script>
   {% endif %}

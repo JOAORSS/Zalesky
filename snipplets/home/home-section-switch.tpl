@@ -182,8 +182,7 @@
 {% elseif section_select == 'zaleski_hero_banner' %}
 
     {# **** Zaleski: Hero Banner **** #}
-    {% import 'snipplets/api-vercel/fetch-component.tpl' as zaleskiComponent %}
-    {{ zaleskiComponent.load('hero-banner') }}
+    {% include 'snipplets/react/hero-banner.tpl' %}
 
 {% elseif section_select == 'zaleski_category_grid' %}
 
