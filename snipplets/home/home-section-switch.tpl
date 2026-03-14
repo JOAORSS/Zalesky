@@ -26,7 +26,10 @@
 	{% if show_help or (show_component_help and not has_products) %}
 		{% include 'snipplets/defaults/home/featured_products_help.tpl' with { products_title: 'Destacados' | translate, section_id: 'featured' }  %}
 	{% else %}
-		{% include 'snipplets/home/home-featured-products.tpl' with {'has_featured': true} %}
+		{% include 'snipplets/react/product-section.tpl' with {
+			'section_products': sections.primary.products,
+			'section_title': 'Destacados' | translate
+		} %}
 	{% endif %}
 
 {% elseif section_select == 'informatives' %} {#  **** Informative banners ****  #}
@@ -52,7 +55,10 @@
 	{% if show_help or (show_component_help and not has_products) %}
 		{% include 'snipplets/defaults/home/featured_products_help.tpl' with { products_title: 'Novedades'| translate, section_id: 'new' }  %}
 	{% else %}
-		{% include 'snipplets/home/home-featured-products.tpl' with {'has_new': true} %}
+		{% include 'snipplets/react/product-section.tpl' with {
+			'section_products': sections.new.products,
+			'section_title': 'Novedades' | translate
+		} %}
 	{% endif %}
 
 {% elseif section_select == 'video' %} {#  **** Video embed ****  #}
@@ -70,7 +76,10 @@
 	{% if show_help or (show_component_help and not has_products) %}
 		{% include 'snipplets/defaults/home/featured_products_help.tpl' with { products_title: 'Ofertas' | translate,  section_id: 'sale' }  %}
 	{% else %}
-		{% include 'snipplets/home/home-featured-products.tpl' with {'has_sale': true} %}
+		{% include 'snipplets/react/product-section.tpl' with {
+			'section_products': sections.sale.products,
+			'section_title': 'Ofertas' | translate
+		} %}
 	{% endif %}
 
 {% elseif section_select == 'main_product' %} {#  **** Main product ****  #}
@@ -160,6 +169,16 @@
 	</section>
 
 {% elseif section_select == 'zaleski_hero_banner' %} {# **** Zaleski: Hero Banner **** #}
+
     {% include 'snipplets/react/hero-banner.tpl' %}
+
+{% elseif section_select == 'zaleski_category_grid' %} {# **** Zaleski: Grade de Categorias **** #}
+
+    {% include 'snipplets/react/category-strip.tpl' %}
+	
+{% elseif section_select == 'zaleski_trust_bar' %} {# **** Zaleski: Barra de Benefícios **** #}
+
+    {% include 'snipplets/react/trust-strip.tpl' %}
+	
 {% endif %}
 

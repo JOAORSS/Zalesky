@@ -1124,6 +1124,74 @@ Página de inicio
 			zaleski_newsletter = Zaleski: Newsletter
 			zaleski_recommendations = Zaleski: Recomendações de Produtos
 	collapse
+		title = Zaleski: Grade de Categorias
+		backto = home_order_position
+	subtitle
+		subtitle = Categoria 1
+	i18n_input
+		name = zaleski_category_title_1
+		description = Título
+	i18n_input
+		name = zaleski_category_url_1
+		description = Link
+	image
+		title = Imagem 1 (JPG, GIF, PNG)
+		original = zaleski_category_image_1.jpg
+		width = 200
+		height = 200
+	subtitle
+		subtitle = Categoria 2
+	i18n_input
+		name = zaleski_category_title_2
+		description = Título
+	i18n_input
+		name = zaleski_category_url_2
+		description = Link
+	image
+		title = Imagem 2 (JPG, GIF, PNG)
+		original = zaleski_category_image_2.jpg
+		width = 200
+		height = 200
+	subtitle
+		subtitle = Categoria 3
+	i18n_input
+		name = zaleski_category_title_3
+		description = Título
+	i18n_input
+		name = zaleski_category_url_3
+		description = Link
+	image
+		title = Imagem 3 (JPG, GIF, PNG)
+		original = zaleski_category_image_3.jpg
+		width = 200
+		height = 200
+	subtitle
+		subtitle = Categoria 4
+	i18n_input
+		name = zaleski_category_title_4
+		description = Título
+	i18n_input
+		name = zaleski_category_url_4
+		description = Link
+	image
+		title = Imagem 4 (JPG, GIF, PNG)
+		original = zaleski_category_image_4.jpg
+		width = 200
+		height = 200
+	subtitle
+		subtitle = Categoria 5
+	i18n_input
+		name = zaleski_category_title_5
+		description = Título
+	i18n_input
+		name = zaleski_category_url_5
+		description = Link
+	image
+		title = Imagem 5 (JPG, GIF, PNG)
+		original = zaleski_category_image_5.jpg
+		width = 200
+		height = 200
+	collapse
 		title = Zaleski: Hero Banner
 		backto = home_order_position
 	subtitle
@@ -1186,6 +1254,22 @@ Página de inicio
 	link
 		text = Pop-up promocional
 		linkto = home_promotional_popup
+
+	collapse
+		title = Zaleski: Barra de Benefícios
+		backto = home_order_position
+	i18n_input
+		name = trust_text_1
+		description = Benfício 1
+	i18n_input
+		name = trust_text_2
+		description = Benfício 2
+	i18n_input
+		name = trust_text_3
+		description = Benfício 3
+	i18n_input
+		name = trust_text_4
+		description = Benfício 4
 
 Listado de productos
 	meta
