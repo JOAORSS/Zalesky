@@ -1,6 +1,4 @@
-{% if section_select == 'slider' %}
-
-	{#  **** Home slider ****  #}
+{% if section_select == 'slider' %} {#  **** Home slider ****  #}
 
 	{% set head_transparent_section = (has_main_slider or has_mobile_slider) and settings.head_transparent %}
 
@@ -15,36 +13,32 @@
 		{% endif %}
 	</section>
 
-{% elseif section_select == 'main_categories' %}
+{% elseif section_select == 'main_categories' %} {#  **** Main categories ****  #}
 
-	{#  **** Main categories ****  #}
 	{% if show_help or (show_component_help and not has_main_categories) %}
 		{% snipplet 'defaults/home/main_categories_help.tpl' %}
 	{% else %}
 		{% include 'snipplets/home/home-categories.tpl' %}
 	{% endif %}
 
-{% elseif section_select == 'products' %}
+{% elseif section_select == 'products' %} {#  **** Featured products ****  #}
 
-	{#  **** Featured products ****  #}
 	{% if show_help or (show_component_help and not has_products) %}
 		{% include 'snipplets/defaults/home/featured_products_help.tpl' with { products_title: 'Destacados' | translate, section_id: 'featured' }  %}
 	{% else %}
 		{% include 'snipplets/home/home-featured-products.tpl' with {'has_featured': true} %}
 	{% endif %}
 
-{% elseif section_select == 'informatives' %}
+{% elseif section_select == 'informatives' %} {#  **** Informative banners ****  #}
 
-	{#  **** Informative banners ****  #}
 	{% if show_help or (show_component_help and not has_informative_banners) %}
 		{% snipplet 'defaults/home/informative_banners_help.tpl' %}
 	{% else %}
 		{% include 'snipplets/banner-services/banner-services.tpl' %}
 	{% endif %}
 
-{% elseif section_select == 'categories' %}
+{% elseif section_select == 'categories' %} {#  **** Categories banners ****  #}
 
-	{#  **** Categories banners ****  #}
 	<section class="section-banners-home position-relative" data-store="home-banner-categories">
 		{% if show_help or (show_component_help and not has_banners) %}
 			{% snipplet 'defaults/home/category_banners_help.tpl' %}
@@ -53,18 +47,15 @@
 		{% endif %}
 	</section>
 
-{% elseif section_select == 'new' %}
+{% elseif section_select == 'new' %} {#  **** New products ****  #}
 
-	{#  **** New products ****  #}
 	{% if show_help or (show_component_help and not has_products) %}
 		{% include 'snipplets/defaults/home/featured_products_help.tpl' with { products_title: 'Novedades'| translate, section_id: 'new' }  %}
 	{% else %}
 		{% include 'snipplets/home/home-featured-products.tpl' with {'has_new': true} %}
 	{% endif %}
 
-{% elseif section_select == 'video' %}
-
-	{#  **** Video embed ****  #}
+{% elseif section_select == 'video' %} {#  **** Video embed ****  #}
 
 	 <section class="section-video-home" data-store="home-video">
 		{% if show_help or (show_component_help and not has_video) %}
@@ -74,41 +65,36 @@
 		{% endif %}
 	</section>
 	
-{% elseif section_select == 'sale' %}
+{% elseif section_select == 'sale' %} {#  **** Sale products ****  #}
 
-	{#  **** Sale products ****  #}
 	{% if show_help or (show_component_help and not has_products) %}
 		{% include 'snipplets/defaults/home/featured_products_help.tpl' with { products_title: 'Ofertas' | translate,  section_id: 'sale' }  %}
 	{% else %}
 		{% include 'snipplets/home/home-featured-products.tpl' with {'has_sale': true} %}
 	{% endif %}
 
-{% elseif section_select == 'main_product' %}
+{% elseif section_select == 'main_product' %} {#  **** Main product ****  #}
 
-	{#  **** Main product ****  #}
 	{% if show_help or (show_component_help and not has_products) %}
 		{% snipplet 'defaults/home/main_product_help.tpl' %}
 	{% else %}
 		{% include 'snipplets/home/home-main-product.tpl' %}
 	{% endif %}
 
-{% elseif section_select == 'newsletter' %}
+{% elseif section_select == 'newsletter' %} {#  **** Newsletter ****  #}
 
-	{#  **** Newsletter ****  #}
 	{% include 'snipplets/home/home-newsletter.tpl' %}
 
-{% elseif section_select == 'instafeed' %}
+{% elseif section_select == 'instafeed' %} {#  **** Instafeed ****  #}
 
-	{#  **** Instafeed ****  #}
 	{% if show_help or (show_component_help and not has_instafeed) %}
 		{% snipplet 'defaults/home/instafeed_help.tpl' %}
 	{% else %}
 		{% include 'snipplets/home/home-instafeed.tpl' %}
 	{% endif %}
 
-{% elseif section_select == 'promotional' %}
+{% elseif section_select == 'promotional' %} {#  **** Promotional banners ****  #}
 
-	{#  **** Promotional banners ****  #}
 	<section class="section-banners-home position-relative" data-store="home-banner-promotional">
 		{% if show_help or (show_component_help and not has_promotional_banners) %}
 			{% snipplet 'defaults/home/promotional_banners_help.tpl' %}
@@ -117,9 +103,8 @@
 		{% endif %}
 	</section>
 
-{% elseif section_select == 'news_banners' %}
+{% elseif section_select == 'news_banners' %} {#  **** News banners ****  #}
 
-	{#  **** News banners ****  #}
 	<section class="section-banners-home position-relative" data-store="home-banner-news">
 		{% if show_help or (show_component_help and not has_news_banners) %}
 			{% snipplet 'defaults/home/news_banners_help.tpl' %}
@@ -128,9 +113,8 @@
 		{% endif %}
 	</section>
 
-{% elseif section_select == 'modules' %}
+{% elseif section_select == 'modules' %} {#  **** Modules ****  #}
 
-	{#  **** Modules ****  #}
 	<section class="section-modules-home position-relative" data-store="home-image-text-module">
 		{% if show_help or (show_component_help and not has_image_and_text_module) %}
 			{% include 'snipplets/defaults/home/image_text_modules_help.tpl' %}
@@ -139,27 +123,24 @@
 		{% endif %}
 	</section>
 
-{% elseif section_select == 'welcome' %}
+{% elseif section_select == 'welcome' %} {#  **** Welcome message ****  #}
 
-	{#  **** Welcome message ****  #}
 	{% if show_help or (show_component_help and not has_welcome_message) %}
 		{% include 'snipplets/defaults/home/welcome_message_help.tpl' with { section: 'welcome', title: 'Mensaje de bienvenida' | translate, data_store: 'home-welcome-message' } %}
 	{% else %}
 		{% include 'snipplets/home/home-welcome-message.tpl' %}
 	{% endif %}
 
-{% elseif section_select == 'institutional' %}
+{% elseif section_select == 'institutional' %} {#  **** Institutional message ****  #}
 
-	{#  **** Institutional message ****  #}
 	{% if show_help or (show_component_help and not has_institutional_message) %}
 		{% include 'snipplets/defaults/home/welcome_message_help.tpl' with { section: 'institutional', title: 'Mensaje institucional' | translate, data_store: 'home-institutional-message' } %}
 	{% else %}
 		{% include 'snipplets/home/home-welcome-message.tpl' with {institutional: true} %}
 	{% endif %}
 
-{% elseif section_select == 'testimonials' %}
+{% elseif section_select == 'testimonials' %} {#  **** Testimonials slider ****  #}
 
-	{#  **** Testimonials slider ****  #}
 	<section class="section-testimonials-home position-relative" data-store="home-testimonials">
 		{% if show_help or (show_component_help and not has_testimonials) %}
 			{% snipplet 'defaults/home/testimonials_help.tpl' %}
@@ -168,9 +149,8 @@
 		{% endif %}
 	</section>
 
-{% elseif section_select == 'brands' %}
-
-	{#  **** Brands ****  #}
+{% elseif section_select == 'brands' %} {#  **** Brands ****  #}
+	
 	<section class="section-brands-home" data-store="home-brands">
 		{% if show_help or (show_component_help and not has_brands) %}
 			{% snipplet 'defaults/home/brands_help.tpl' %}
@@ -179,36 +159,7 @@
 		{% endif %}
 	</section>
 
-{% elseif section_select == 'zaleski_hero_banner' %}
-
-    {# **** Zaleski: Hero Banner **** #}
+{% elseif section_select == 'zaleski_hero_banner' %} {# **** Zaleski: Hero Banner **** #}
     {% include 'snipplets/react/hero-banner.tpl' %}
-
-{% elseif section_select == 'zaleski_category_grid' %}
-
-    {# **** Zaleski: Grade de Categorias **** #}
-    {% import 'snipplets/api-vercel/fetch-component.tpl' as zaleskiComponent %}
-    {{ zaleskiComponent.load('category-grid') }}
-
-{% elseif section_select == 'zaleski_trust_bar' %}
-
-    {# **** Zaleski: Barra de Benefícios **** #}
-    {% import 'snipplets/api-vercel/fetch-component.tpl' as zaleskiComponent %}
-    {{ zaleskiComponent.load('trust-bar') }}
-
-{% elseif section_select == 'zaleski_newsletter' %}
-
-	<p>PELO AMOR FUNCITONA</p>
-
-    {# **** Zaleski: Newsletter **** #}
-    {% import 'snipplets/api-vercel/fetch-component.tpl' as zaleskiComponent %}
-    {{ zaleskiComponent.load('newsletter') }}
-
-{% elseif section_select == 'zaleski_recommendations' %}
-
-    {# **** Zaleski: Recomendações **** #}
-    {% import 'snipplets/api-vercel/fetch-component.tpl' as zaleskiComponent %}
-    {{ zaleskiComponent.load('recommendations') }}
-
 {% endif %}
 

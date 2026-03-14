@@ -1126,21 +1126,61 @@ Página de inicio
 	collapse
 		title = Zaleski: Hero Banner
 		backto = home_order_position
+	subtitle
+		subtitle = Banner 1
 	i18n_input
-		name = zaleski_hero_title
+		name = zaleski_hero_title_1
 		description = Título
 	i18n_input
-		name = zaleski_hero_subtitle
+		name = zaleski_hero_subtitle_1
 		description = Subtítulo
 	i18n_input
-		name = zaleski_hero_button_text
+		name = zaleski_hero_button_text_1
 		description = Texto do botão principal
 	i18n_input
-		name = zaleski_hero_button_url
+		name = zaleski_hero_button_url_1
 		description = Link do botão principal
 	image
-		title = Cargar imagen (JPG, GIF, PNG)
-		original = zaleski_hero_image.jpg
+		title = Imagem do Banner 1 (JPG, GIF, PNG)
+		original = zaleski_hero_image_1.jpg
+		width = 1920
+		height = 1080
+	subtitle
+		subtitle = Banner 2
+	i18n_input
+		name = zaleski_hero_title_2
+		description = Título
+	i18n_input
+		name = zaleski_hero_subtitle_2
+		description = Subtítulo
+	i18n_input
+		name = zaleski_hero_button_text_2
+		description = Texto do botão principal
+	i18n_input
+		name = zaleski_hero_button_url_2
+		description = Link do botão principal
+	image
+		title = Imagem do Banner 2 (JPG, GIF, PNG)
+		original = zaleski_hero_image_2.jpg
+		width = 1920
+		height = 1080
+	subtitle
+		subtitle = Banner 3
+	i18n_input
+		name = zaleski_hero_title_3
+		description = Título
+	i18n_input
+		name = zaleski_hero_subtitle_3
+		description = Subtítulo
+	i18n_input
+		name = zaleski_hero_button_text_3
+		description = Texto do botão principal
+	i18n_input
+		name = zaleski_hero_button_url_3
+		description = Link do botão principal
+	image
+		title = Imagem do Banner 3 (JPG, GIF, PNG)
+		original = zaleski_hero_image_3.jpg
 		width = 1920
 		height = 1080
 	link
