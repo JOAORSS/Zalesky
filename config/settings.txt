@@ -1123,6 +1123,66 @@ Página de inicio
 			zaleski_trust_bar = Zaleski: Barra de Benefícios
 			zaleski_newsletter = Zaleski: Newsletter
 			zaleski_recommendations = Zaleski: Recomendações de Produtos
+			zaleski_shop_by_color = Zaleski: Escolha por Cor
+	collapse
+		title = Zaleski: Escolha por Cor
+		backto = home_order_position
+	meta
+		icon = paint-brush
+	i18n_input
+		name = zaleski_shop_by_color_title
+		description = Título da Seção
+	i18n_input
+		name = zaleski_shop_by_color_url
+		description = Link do botão "Ver todas"
+	subtitle
+		subtitle = Cor 1
+	i18n_input
+		name = zaleski_color_1_name
+		description = Nome da Cor (ex: Baunilha)
+	color
+		name = zaleski_color_1_hex
+		description = Cor
+	subtitle
+		subtitle = Cor 2
+	i18n_input
+		name = zaleski_color_2_name
+		description = Nome da Cor
+	color
+		name = zaleski_color_2_hex
+		description = Cor
+	subtitle
+		subtitle = Cor 3
+	i18n_input
+		name = zaleski_color_3_name
+		description = Nome da Cor
+	color
+		name = zaleski_color_3_hex
+		description = Cor
+	subtitle
+		subtitle = Cor 4
+	i18n_input
+		name = zaleski_color_4_name
+		description = Nome da Cor
+	color
+		name = zaleski_color_4_hex
+		description = Cor
+	subtitle
+		subtitle = Cor 5
+	i18n_input
+		name = zaleski_color_5_name
+		description = Nome da Cor
+	color
+		name = zaleski_color_5_hex
+		description = Cor
+	subtitle
+		subtitle = Cor 6
+	i18n_input
+		name = zaleski_color_6_name
+		description = Nome da Cor
+	color
+		name = zaleski_color_6_hex
+		description = Cor
 	collapse
 		title = Zaleski: Grade de Categorias
 		backto = home_order_position

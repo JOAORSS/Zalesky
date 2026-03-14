@@ -180,5 +180,9 @@
 
     {% include 'snipplets/react/trust-strip.tpl' %}
 	
+{% elseif section_select == 'zaleski_shop_by_color' %} {# **** Zaleski: Escolha por Cor **** #}
+
+    {% include 'snipplets/react/shop-by-color.tpl' %}
+
 {% endif %}
 
