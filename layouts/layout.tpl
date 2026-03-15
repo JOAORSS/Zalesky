@@ -80,7 +80,7 @@
 		{# WhatsApp chat button #}
 		{% snipplet "whatsapp-chat.tpl" %}
 		{# Footer #}
-		{% snipplet "footer/footer.tpl" %}
+		{% snipplet "react/footer.tpl" %}
 
 		{% if cart.free_shipping.cart_has_free_shipping or cart.free_shipping.min_price_free_shipping.min_price %}
 			{# Minimum used for free shipping progress messages. Located on header so it can be accesed everywhere with shipping calculator active or inactive #}

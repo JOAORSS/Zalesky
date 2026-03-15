@@ -192,5 +192,13 @@
 
     {% include 'snipplets/react/home-reviews.tpl' %}
 
+{% elseif section_select == 'zaleski_dreamers' %} {# **** Zaleski: Dreamers Section **** #}
+
+    {% include 'snipplets/react/dreamers.tpl' %}
+
+{% elseif section_select == 'zaleski_about' %} {# **** Zaleski: Quem Somos **** #}
+
+    {% include 'snipplets/react/home-about.tpl' %}
+
 {% endif %}
 

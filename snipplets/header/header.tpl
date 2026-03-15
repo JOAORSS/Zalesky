@@ -56,6 +56,22 @@
     </nav>
 
     {% include "snipplets/notification.tpl" with {order_notification: true} %}
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var adbar = document.querySelector('.section-adbar');
+            
+            if (adbar) {
+                window.addEventListener('scroll', function() {
+                    if (window.scrollY > 40) {
+                        adbar.classList.add('zaleski-adbar-hidden');
+                    } else {
+                        adbar.classList.remove('zaleski-adbar-hidden');
+                    }
+                });
+            }
+        });
+        </script>
 </header>
 
 {# Show cookie validation message #}

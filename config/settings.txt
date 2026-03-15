@@ -417,6 +417,72 @@ Menú de navegación
 		description = URL da API de componentes
 		default = https://nextt-pdp-core.vercel.app
 
+	collapse
+		title = Zaleski: Rodapé e Newsletter
+		backto = _top
+	checkbox
+		name = zaleski_show_newsletter
+		description = Mostrar Newsletter no topo do rodapé
+	i18n_input
+		name = zaleski_nl_title
+		description = Título da Newsletter
+	i18n_input
+		name = zaleski_nl_subtitle
+		description = Subtítulo da Newsletter
+	i18n_input
+		name = zaleski_nl_placeholder
+		description = Placeholder do campo de e-mail
+	i18n_input
+		name = zaleski_nl_button
+		description = Texto do botão da Newsletter
+	title
+		title = Colunas de Links
+	menu
+		name = zaleski_footer_menu_1
+		description = Selecione o Menu da Coluna 1
+	i18n_input
+		name = zaleski_footer_title_1
+		description = Título da Coluna 1 (ex: Categorias)
+	menu
+		name = zaleski_footer_menu_2
+		description = Selecione o Menu da Coluna 2
+	i18n_input
+		name = zaleski_footer_title_2
+		description = Título da Coluna 2 (ex: Informações)
+	title
+		title = Coluna de Contato
+	i18n_input
+		name = zaleski_footer_contact_title
+		description = Título da Coluna de Contato
+	i18n_input
+		name = zaleski_footer_email
+		description = E-mail de Contato
+	i18n_input
+		name = zaleski_footer_instagram
+		description = Link do Instagram
+	i18n_input
+		name = zaleski_footer_facebook
+		description = Link do Facebook
+	i18n_input
+		name = zaleski_footer_followers
+		description = Texto de seguidores (ex: +14k seguidores no Instagram)
+	title
+		title = Coluna de Pagamento
+	i18n_input
+		name = zaleski_footer_payment_title
+		description = Título da Coluna de Pagamentos
+	i18n_input
+		name = zaleski_footer_trust_text
+		description = Texto de segurança (ex: Compre com confiança)
+	i18n_input
+		name = zaleski_footer_payment_icons
+		description = Ícones de Pagamento (separados por vírgula, ex: Visa, Mastercard, Pix)
+	title
+		title = Rodapé Inferior
+	i18n_input
+		name = zaleski_footer_copyright
+		description = Texto de Copyright
+
 Página de inicio
 	meta
 		icon = home
@@ -1067,6 +1133,8 @@ Página de inicio
 			zaleski_shop_by_color = Zaleski: Escolha por Cor
 			zaleski_categories_carousel = Zaleski: Carrossel de Temas
 			zaleski_testimonials = Zaleski: Depoimentos
+			zaleski_dreamers = Zaleski: Dreamers
+			zaleski_about = Zaleski: Quem Somos
 
 	collapse
 		title = Zaleski: Hero Banner
@@ -1403,6 +1471,107 @@ Página de inicio
 		description = Texto da Avaliação 3
 
 	collapse
+		title = Zaleski: Dreamers
+		backto = home_order_position
+	i18n_input
+		name = dreamers_title
+		description = Título da Seção
+	i18n_input
+		name = dreamers_subtitle
+		description = Subtítulo
+	i18n_input
+		name = dreamers_footer
+		description = Texto de rodapé
+	subtitle
+		subtitle = Dreamer 1
+	image
+		original = dreamers_1_image.jpg
+		title = Foto 1
+	i18n_input
+		name = dreamers_1_username
+		description = Nome de usuário (@) 1
+	i18n_input
+		name = dreamers_1_url
+		description = Link 1
+	subtitle
+		subtitle = Dreamer 2
+	image
+		original = dreamers_2_image.jpg
+		title = Foto 2
+	i18n_input
+		name = dreamers_2_username
+		description = Nome de usuário (@) 2
+	i18n_input
+		name = dreamers_2_url
+		description = Link 2
+	subtitle
+		subtitle = Dreamer 3
+	image
+		original = dreamers_3_image.jpg
+		title = Foto 3
+	i18n_input
+		name = dreamers_3_username
+		description = Nome de usuário (@) 3
+	i18n_input
+		name = dreamers_3_url
+		description = Link 3
+	subtitle
+		subtitle = Dreamer 4
+	image
+		original = dreamers_4_image.jpg
+		title = Foto 4
+	i18n_input
+		name = dreamers_4_username
+		description = Nome de usuário (@) 4
+	i18n_input
+		name = dreamers_4_url
+		description = Link 4
+	subtitle
+		subtitle = Dreamer 5
+	image
+		original = dreamers_5_image.jpg
+		title = Foto 5
+	i18n_input
+		name = dreamers_5_username
+		description = Nome de usuário (@) 5
+	i18n_input
+		name = dreamers_5_url
+		description = Link 5
+	subtitle
+		subtitle = Dreamer 6
+	image
+		original = dreamers_6_image.jpg
+		title = Foto 6
+	i18n_input
+		name = dreamers_6_username
+		description = Nome de usuário (@) 6
+	i18n_input
+		name = dreamers_6_url
+		description = Link 6
+
+	collapse
+		title = Zaleski: Quem Somos
+		backto = home_order_position
+	i18n_input
+		name = about_title
+		description = Título Principal
+	textarea
+		name = about_description
+		description = Descrição (Aceita HTML básico)
+	i18n_input
+		name = about_link_text
+		description = Texto do Link (ex: Conheça nossa história →)
+	i18n_input
+		name = about_link_url
+		description = URL do Link
+	i18n_input
+		name = about_stamp_top
+		description = Carimbo - Linha Superior (Negrito)
+	i18n_input
+		name = about_stamp_bottom
+		description = Carimbo - Linha Inferior
+
+	collapse
 		title = Zaleski: Banners de Tema
 		backto = _top
 	checkbox
@@ -1612,69 +1781,6 @@ Pie de página
 	meta
 		icon = arrow-down
 		advanced = true
-	title
-		title = Colores
-	checkbox
-		name = footer_colors
-		description = Usar estos colores para el pie de página
-	color
-		name = footer_background_color
-		description = Color de fondo
-	color
-		name = footer_foreground_color
-		description = Color de textos e íconos
-	title
-		title = Idiomas y monedas
-	checkbox
-		name = languages_footer
-		description = Mostrar idiomas y monedas en el pie de página
-	title
-		title = Newsletter
-	checkbox
-		name = news_show
-		description = Permitir que tus clientes se registren para recibir novedades
-	i18n_input
-		name = news_title
-		description = Elegí el título para la sección 'Newsletter'
-	title
-		title = Menúes
-	subtitle
-		subtitle = Elegí el menú para el final de la página (footer). Si aún no configuraste ninguno, podés hacerlo <a target='_blank' href='/admin/navigation/?ref=submenu'>desde acá</a>
-	checkbox
-		name = footer_menus_toggle
-		description = Mostrar opciones del menú al tocar el título (solo en celulares)
-	subtitle
-		subtitle = <a target='_blank' href='https://ayuda.tiendanube.com/es_AR/123259-menues/como-cambiar-el-menu-inferior-de-mi-tienda'>¿Cómo cambio el menú inferior de mi tienda?</a>
-	title
-		title = Menú principal
-	checkbox
-		name = footer_menu_show
-		description = Mostrar menú
-	menu
-		name = footer_menu
-		description = ¿Qué menú vas a mostrar al final de la página?
-	i18n_input
-		name = footer_menu_title
-		description = Título
-	title
-		title = Menú secundario
-	checkbox
-		name = footer_menu_secondary_show
-		description = Mostrar menú
-	menu
-		name = footer_menu_secondary
-		description = ¿Qué menú vas a mostrar al final de la página?
-	i18n_input
-		name = footer_menu_secondary_title
-		description = Título
-	title
-		title = Datos de contacto
-	checkbox
-		name = footer_contact_show
-		description = Mostrar datos de contacto
-	i18n_input
-		name = footer_contact_title
-		description = Título
 	title
 		title = Medios de envío
 	checkbox_global
