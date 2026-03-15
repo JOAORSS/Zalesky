@@ -78,6 +78,7 @@ Tipo de letra
 		name = font_headings
 		title = Fuentes para títulos
 		description = Fuente
+		default = "Montserrat", sans-serif
 		values
 			"Almarai", sans-serif = Almarai
 			"Archivo", sans-serif = Archivo
@@ -176,6 +177,7 @@ Tipo de letra
 		name = font_rest
 		title = Fuentes para textos
 		description = Fuente
+		default = "Montserrat", sans-serif
 		values
 			"Almarai", sans-serif = Almarai
 			"Archivo", sans-serif = Archivo

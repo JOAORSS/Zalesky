@@ -5,6 +5,7 @@
 		<link rel="dns-prefetch" href="{{ store_resource_hints }}"/>
 		<link rel="preconnect" href="https://fonts.googleapis.com"/>
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+		<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -23,6 +24,10 @@
 			{{component('fonts',{font_weights: '400,700',font_settings: 'settings.font_headings, settings.font_rest'})}}
 			{# General CSS Tokens #}
 			{% include "static/css/style-tokens.tpl" %}
+			{# Global Font Override #}
+			* {
+				font-family: 'Montserrat', sans-serif !important;
+			}
 		</style>
 
 		{# Critical CSS #}

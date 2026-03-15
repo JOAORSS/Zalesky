@@ -3,7 +3,7 @@
 
 {# Header #}
 
-<header class="hdr head-main js-head-main" data-store="head">
+<header class="hdr head-main js-head-main" data-store="head" style="z-index: 1000;">
 
     {# Advertising bar #}
     {% if settings.ad_bar %}
