@@ -6,8 +6,13 @@
 
 {% if not show_help %}
 
+{% set is_theme_active = false %}
+{% if settings.enable_theme_banners and category.description and '[TEMA]' in category.description %}
+    {% set is_theme_active = true %}
+{% endif %}
+
 {% set category_banner = (category.images is not empty) or ("banner-products.jpg" | has_custom_image) %}
-{% if category_banner %}
+{% if category_banner and not is_theme_active %}
     {% include 'snipplets/category-banner.tpl' %}
 {% endif %}
 <section class="container-fluid mt-3 d-md-none">
@@ -15,6 +20,31 @@
 </section>
 
 {% set desktop_category_controls_transparent = settings.filters_desktop_modal and settings.head_fix_desktop and settings.head_transparent and settings.head_transparent_type == 'all' %}
+
+{% if is_theme_active %}
+
+    {% set has_category_images = category.images is not empty %}
+    <div class="hero-theme-banner" style="position: relative; width: 100%; height: 60vh; overflow: hidden;">
+        {% if has_category_images %}
+            <img src="{{ category.images | first | category_image_url('original') }}" style="width: 100%; height: 100%; object-fit: cover;" alt="{{ category.name }}" />
+        {% endif %}
+        <div style="position: absolute; inset: 0; background: rgba(0,0,0,0.4); display: flex; align-items: center; justify-content: center;">
+            <h1 style="color: #fff; font-size: 48px; text-transform: uppercase; font-weight: 600; letter-spacing: 2px;">{{ category.name }}</h1>
+        </div>
+    </div>
+
+    {% if category.description %}
+
+		{% if '[TEMA]' in category.description %}
+			{% set description = category.description | split('[TEMA]') | join('') %}
+		{% else %}
+			{% set description = category.description %}
+		{% endif %}		
+
+        <p class="mt-2 mb-3 mt-md-0 mb-md-4 container-fluid" style="text-align: center;">{{ description }}</p>
+    {% endif %}
+
+{% endif %}
 
 <section class="js-category-controls-prev category-controls-sticky-detector"></section>
 <section class="js-category-controls {% if desktop_category_controls_transparent %}js-category-controls-transparent-md category-controls-transparent-md{% endif %} category-controls {% if not settings.filters_desktop_modal %}position-relative-md{% endif %} container-fluid visible-when-content-ready">
@@ -52,7 +82,7 @@
 		{% include 'snipplets/grid/filters-modals.tpl' %}
 	</div>
 </section>
-{% if category.description %} 
+{% if category.description and not is_theme_active %} 
 	<p class="mt-2 mb-3 mt-md-0 mb-md-4 container-fluid">{{ category.description }}</p> 
 {% endif %}
 <div class="container-fluid visible-when-content-ready d-md-none">

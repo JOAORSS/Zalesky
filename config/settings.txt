@@ -67,7 +67,7 @@ Colores de tu marca
 				adbar_foreground_color = #FFFFFF
 	subtitle
 		subtitle = <a target='_blank' href='https://ayuda.tiendanube.com/es_ES/124497-colores-de-tu-marca/como-cambiar-los-colores-de-mi-diseno/?utm_source=admin-desktop&utm_medium=feature-page&utm_campaign=help'>¿Cómo cambio los colores de mi diseño?</a>
-		
+
 Tipo de letra
 	meta
 		icon = font
@@ -452,6 +452,12 @@ Página de inicio
 	subtitle
 		subtitle = <a target='_blank' data-toggle-info='show-on_slider_mobile-inactive' href='https://ayuda.tiendanube.com/es/articles/3297783-como-usar-el-carrusel-de-imagenes-para-las-plantillas-idea-bahia-y-amazonas'>¿Cómo diseñar las imágenes para tu carrusel?</a>
 	collapse
+		title = Ofertas relámpago
+		backto = home_order_position
+	checkbox
+		name = flash_offer
+		description = Mostrar banners de oferta relámpago
+	collapse
 		title = Categorías principales
 		backto = home_order_position
 	checkbox
@@ -553,7 +559,6 @@ Página de inicio
 	i18n_input
 		name = banner_services_03_url
 		description = Link
-
 	collapse
 		title = Productos destacados
 		backto = home_order_position
@@ -658,7 +663,6 @@ Página de inicio
 			4 = 4 productos
 	subtitle
 		subtitle = <a target='_blank' href='/admin/themes/settings/product_order/'>Elegí cuáles vas a destacar</a>
-
 	collapse
 		title = Producto principal
 		backto = home_order_position
@@ -672,7 +676,6 @@ Página de inicio
 			random = En forma aleatoria
 	subtitle
 		subtitle = <a target='_blank' href='/admin/themes/settings/product_order/'>Elegí cuál vas a destacar</a>
-
 	collapse
 		title = Mensaje de bienvenida
 		backto = home_order_position
@@ -682,7 +685,6 @@ Página de inicio
 	i18n_input
 		name = welcome_text
 		description = Descripción
-
 	collapse
 		title = Mensaje institucional
 		backto = home_order_position
@@ -692,7 +694,6 @@ Página de inicio
 	i18n_input
 		name = institutional_text
 		description = Descripción
-
 	collapse
 		title = Banners de categorías
 		backto = home_order_position
@@ -1032,67 +1033,7 @@ Página de inicio
 		description = Permitir que tus clientes se suscriban al newsletter
 	subtitle
 		subtitle = <span class='legend'>El texto y link del botón no se van a mostrar si está habilitada la suscripción al newsletter</span>
-	collapse
-		title = Hero Banner
-		backto = home_order_position
-	checkbox
-		name = show_hero_banner
-		default = true
-		description = Mostrar hero banner
-	image
-		title = Imagem Desktop
-		original = hero_image_desktop.jpg
-		width = 1920
-		height = 1080
-	image
-		title = Imagem Mobile
-		original = hero_image_mobile.jpg
-		width = 820
-		height = 1200
-	i18n_input
-		name = hero_title
-		description = Título
-	i18n_input
-		name = hero_subtitle
-		description = Subtítulo
-	i18n_input
-		name = hero_button_text
-		description = Texto do botão
-	i18n_input
-		name = hero_button_url
-		description = Link do botão
-	i18n_input
-		name = hero_overlay_opacity
-		description = Opacidade do overlay (0 a 1, ex: 0.4)
-
-	collapse
-		title = Barra de Benefícios
-		backto = home_order_position
-	checkbox
-		name = show_benefits
-		default = true
-		description = Mostrar barra de benefícios
-	subtitle
-		subtitle = Benefício 1
-	i18n_input
-		name = benefit_1_text
-		description = Texto do benefício 1
-	subtitle
-		subtitle = Benefício 2
-	i18n_input
-		name = benefit_2_text
-		description = Texto do benefício 2
-	subtitle
-		subtitle = Benefício 3
-	i18n_input
-		name = benefit_3_text
-		description = Texto do benefício 3
-	subtitle
-		subtitle = Benefício 4
-	i18n_input
-		name = benefit_4_text
-		description = Texto do benefício 4
-
+	
 	collapse
 		title = Página de inicio
 		backto = _top
@@ -1121,68 +1062,90 @@ Página de inicio
 			zaleski_hero_banner = Zaleski: Hero Banner
 			zaleski_category_grid = Zaleski: Grade de Categorias
 			zaleski_trust_bar = Zaleski: Barra de Benefícios
-			zaleski_newsletter = Zaleski: Newsletter
-			zaleski_recommendations = Zaleski: Recomendações de Produtos
 			zaleski_shop_by_color = Zaleski: Escolha por Cor
+			zaleski_categories_carousel = Zaleski: Carrossel de Temas
+			zaleski_testimonials = Zaleski: Depoimentos
+
 	collapse
-		title = Zaleski: Escolha por Cor
+		title = Zaleski: Hero Banner
 		backto = home_order_position
-	meta
-		icon = paint-brush
-	i18n_input
-		name = zaleski_shop_by_color_title
-		description = Título da Seção
-	i18n_input
-		name = zaleski_shop_by_color_url
-		description = Link do botão "Ver todas"
+	checkbox
+		name = show_hero_banner
+		default = true
+		description = Mostrar hero banner
 	subtitle
-		subtitle = Cor 1
+		subtitle = Banner 1
 	i18n_input
-		name = zaleski_color_1_name
-		description = Nome da Cor (ex: Baunilha)
-	color
-		name = zaleski_color_1_hex
-		description = Cor
+		name = zaleski_hero_title_1
+		description = Título
+	i18n_input
+		name = zaleski_hero_subtitle_1
+		description = Subtítulo
+	i18n_input
+		name = zaleski_hero_button_text_1
+		description = Texto do botão principal
+	i18n_input
+		name = zaleski_hero_button_url_1
+		description = Link do botão principal
+	image
+		title = Imagem Desktop 1 (JPG, GIF, PNG)
+		original = zaleski_hero_image_desktop_1.jpg
+		width = 1920
+		height = 1080
+	image
+		title = Imagem Mobile 1 (JPG, GIF, PNG)
+		original = zaleski_hero_image_mobile_1.jpg
+		width = 820
+		height = 1200
 	subtitle
-		subtitle = Cor 2
+		subtitle = Banner 2
 	i18n_input
-		name = zaleski_color_2_name
-		description = Nome da Cor
-	color
-		name = zaleski_color_2_hex
-		description = Cor
+		name = zaleski_hero_title_2
+		description = Título
+	i18n_input
+		name = zaleski_hero_subtitle_2
+		description = Subtítulo
+	i18n_input
+		name = zaleski_hero_button_text_2
+		description = Texto do botão principal
+	i18n_input
+		name = zaleski_hero_button_url_2
+		description = Link do botão principal
+	image
+		title = Imagem Desktop 2 (JPG, GIF, PNG)
+		original = zaleski_hero_image_desktop_2.jpg
+		width = 1920
+		height = 1080
+	image
+		title = Imagem Mobile 2 (JPG, GIF, PNG)
+		original = zaleski_hero_image_mobile_2.jpg
+		width = 820
+		height = 1200
 	subtitle
-		subtitle = Cor 3
+		subtitle = Banner 3
 	i18n_input
-		name = zaleski_color_3_name
-		description = Nome da Cor
-	color
-		name = zaleski_color_3_hex
-		description = Cor
-	subtitle
-		subtitle = Cor 4
+		name = zaleski_hero_title_3
+		description = Título
 	i18n_input
-		name = zaleski_color_4_name
-		description = Nome da Cor
-	color
-		name = zaleski_color_4_hex
-		description = Cor
-	subtitle
-		subtitle = Cor 5
+		name = zaleski_hero_subtitle_3
+		description = Subtítulo
 	i18n_input
-		name = zaleski_color_5_name
-		description = Nome da Cor
-	color
-		name = zaleski_color_5_hex
-		description = Cor
-	subtitle
-		subtitle = Cor 6
+		name = zaleski_hero_button_text_3
+		description = Texto do botão principal
 	i18n_input
-		name = zaleski_color_6_name
-		description = Nome da Cor
-	color
-		name = zaleski_color_6_hex
-		description = Cor
+		name = zaleski_hero_button_url_3
+		description = Link do botão principal
+	image
+		title = Imagem Desktop 3 (JPG, GIF, PNG)
+		original = zaleski_hero_image_desktop_3.jpg
+		width = 1920
+		height = 1080
+	image
+		title = Imagem Mobile 3 (JPG, GIF, PNG)
+		original = zaleski_hero_image_mobile_3.jpg
+		width = 820
+		height = 1200
+
 	collapse
 		title = Zaleski: Grade de Categorias
 		backto = home_order_position
@@ -1251,85 +1214,198 @@ Página de inicio
 		original = zaleski_category_image_5.jpg
 		width = 200
 		height = 200
-	collapse
-		title = Zaleski: Hero Banner
-		backto = home_order_position
-	subtitle
-		subtitle = Banner 1
-	i18n_input
-		name = zaleski_hero_title_1
-		description = Título
-	i18n_input
-		name = zaleski_hero_subtitle_1
-		description = Subtítulo
-	i18n_input
-		name = zaleski_hero_button_text_1
-		description = Texto do botão principal
-	i18n_input
-		name = zaleski_hero_button_url_1
-		description = Link do botão principal
-	image
-		title = Imagem do Banner 1 (JPG, GIF, PNG)
-		original = zaleski_hero_image_1.jpg
-		width = 1920
-		height = 1080
-	subtitle
-		subtitle = Banner 2
-	i18n_input
-		name = zaleski_hero_title_2
-		description = Título
-	i18n_input
-		name = zaleski_hero_subtitle_2
-		description = Subtítulo
-	i18n_input
-		name = zaleski_hero_button_text_2
-		description = Texto do botão principal
-	i18n_input
-		name = zaleski_hero_button_url_2
-		description = Link do botão principal
-	image
-		title = Imagem do Banner 2 (JPG, GIF, PNG)
-		original = zaleski_hero_image_2.jpg
-		width = 1920
-		height = 1080
-	subtitle
-		subtitle = Banner 3
-	i18n_input
-		name = zaleski_hero_title_3
-		description = Título
-	i18n_input
-		name = zaleski_hero_subtitle_3
-		description = Subtítulo
-	i18n_input
-		name = zaleski_hero_button_text_3
-		description = Texto do botão principal
-	i18n_input
-		name = zaleski_hero_button_url_3
-		description = Link do botão principal
-	image
-		title = Imagem do Banner 3 (JPG, GIF, PNG)
-		original = zaleski_hero_image_3.jpg
-		width = 1920
-		height = 1080
-	link
-		text = Pop-up promocional
-		linkto = home_promotional_popup
 
 	collapse
 		title = Zaleski: Barra de Benefícios
 		backto = home_order_position
+	checkbox
+		name = show_benefits
+		default = true
+		description = Mostrar barra de benefícios
+	subtitle
+		subtitle = Benefício 1
 	i18n_input
 		name = trust_text_1
-		description = Benfício 1
+		description = Texto do benefício 1
+	subtitle
+		subtitle = Benefício 2
 	i18n_input
 		name = trust_text_2
-		description = Benfício 2
+		description = Texto do benefício 2
+	subtitle
+		subtitle = Benefício 3
 	i18n_input
 		name = trust_text_3
-		description = Benfício 3
+		description = Texto do benefício 3
+	subtitle
+		subtitle = Benefício 4
 	i18n_input
 		name = trust_text_4
-		description = Benfício 4
+		description = Texto do benefício 4
+
+	collapse
+		title = Zaleski: Escolha por Cor
+		backto = home_order_position
+	i18n_input
+		name = zaleski_shop_by_color_title
+		description = Título da Seção
+	i18n_input
+		name = zaleski_shop_by_color_url
+		description = Link do botão "Ver todas"
+	subtitle
+		subtitle = Cor 1
+	i18n_input
+		name = zaleski_color_1_name
+		description = Nome da Cor (ex: Baunilha)
+	color
+		name = zaleski_color_1_hex
+		description = Cor
+	subtitle
+		subtitle = Cor 2
+	i18n_input
+		name = zaleski_color_2_name
+		description = Nome da Cor
+	color
+		name = zaleski_color_2_hex
+		description = Cor
+	subtitle
+		subtitle = Cor 3
+	i18n_input
+		name = zaleski_color_3_name
+		description = Nome da Cor
+	color
+		name = zaleski_color_3_hex
+		description = Cor
+	subtitle
+		subtitle = Cor 4
+	i18n_input
+		name = zaleski_color_4_name
+		description = Nome da Cor
+	color
+		name = zaleski_color_4_hex
+		description = Cor
+	subtitle
+		subtitle = Cor 5
+	i18n_input
+		name = zaleski_color_5_name
+		description = Nome da Cor
+	color
+		name = zaleski_color_5_hex
+		description = Cor
+	subtitle
+		subtitle = Cor 6
+	i18n_input
+		name = zaleski_color_6_name
+		description = Nome da Cor
+	color
+		name = zaleski_color_6_hex
+		description = Cor
+
+	collapse
+		title = Zaleski: Carrossel de Temas
+		backto = home_order_position
+	i18n_input
+		name = theme_section_title
+		description = Título da Seção
+	subtitle
+		subtitle = Tema 1
+	i18n_input
+		name = theme_1_title
+		description = Título
+	i18n_input
+		name = theme_1_url
+		description = Link
+	image
+		title = Imagem Tema 1 (JPG, GIF, PNG)
+		original = theme_1_image.jpg
+		width = 600
+		height = 800
+	subtitle
+		subtitle = Tema 2
+	i18n_input
+		name = theme_2_title
+		description = Título
+	i18n_input
+		name = theme_2_url
+		description = Link
+	image
+		title = Imagem Tema 2 (JPG, GIF, PNG)
+		original = theme_2_image.jpg
+		width = 600
+		height = 800
+	subtitle
+		subtitle = Tema 3
+	i18n_input
+		name = theme_3_title
+		description = Título
+	i18n_input
+		name = theme_3_url
+		description = Link
+	image
+		title = Imagem Tema 3 (JPG, GIF, PNG)
+		original = theme_3_image.jpg
+		width = 600
+		height = 800
+	subtitle
+		subtitle = Tema 4
+	i18n_input
+		name = theme_4_title
+		description = Título
+	i18n_input
+		name = theme_4_url
+		description = Link
+	image
+		title = Imagem Tema 4 (JPG, GIF, PNG)
+		original = theme_4_image.jpg
+		width = 600
+		height = 800
+
+	collapse
+		title = Zaleski: Depoimentos
+		backto = home_order_position
+	i18n_input
+		name = reviews_title
+		description = Título da Seção
+	subtitle
+		subtitle = Avaliação 1
+	image
+		original = review_1_image.jpg
+		title = Foto do Cliente 1
+	i18n_input
+		name = review_1_name
+		description = Nome do Cliente 1
+	i18n_input
+		name = review_1_text
+		description = Texto da Avaliação 1
+	subtitle
+		subtitle = Avaliação 2
+	image
+		original = review_2_image.jpg
+		title = Foto do Cliente 2
+	i18n_input
+		name = review_2_name
+		description = Nome do Cliente 2
+	i18n_input
+		name = review_2_text
+		description = Texto da Avaliação 2
+	subtitle
+		subtitle = Avaliação 3
+	image
+		original = review_3_image.jpg
+		title = Foto do Cliente 3
+	i18n_input
+		name = review_3_name
+		description = Nome do Cliente 3
+	i18n_input
+		name = review_3_text
+		description = Texto da Avaliação 3
+
+	collapse
+		title = Zaleski: Banners de Tema
+		backto = _top
+	checkbox
+		name = enable_theme_banners
+		description = Ativar layout de Coleção Temática para categorias com a tag [TEMA] na descrição
 
 Listado de productos
 	meta

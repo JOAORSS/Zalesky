@@ -121,6 +121,25 @@
 				});
 			</script>
 		{% endif %}
+
+		<script>
+		(function() {
+			var header = document.querySelector('.js-head-main');
+			if (!header) return;
+			var lastY = 0;
+			var threshold = 60;
+			window.addEventListener('scroll', function() {
+				var y = window.pageYOffset;
+				if (y > threshold && y > lastY) {
+					header.classList.add('hdr-shrunk');
+				} else if (y < lastY) {
+					header.classList.remove('hdr-shrunk');
+				}
+				lastY = y;
+			});
+		})();
+		</script>
+
 	</body>
 </html>
 

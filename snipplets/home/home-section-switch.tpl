@@ -184,5 +184,13 @@
 
     {% include 'snipplets/react/shop-by-color.tpl' %}
 
+{% elseif section_select == 'zaleski_categories_carousel' %} {# **** Zaleski: Carrossel de Categorias **** #}
+
+    {% include 'snipplets/react/categories-carousel.tpl' %}
+
+{% elseif section_select == 'zaleski_testimonials' %} {# **** Zaleski: Avaliações de Clientes **** #}
+
+    {% include 'snipplets/react/home-reviews.tpl' %}
+
 {% endif %}
 
