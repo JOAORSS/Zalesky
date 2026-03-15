@@ -14,6 +14,7 @@ window.addEventListener('load', function() {
         var menu2Links = [];
         {% if settings.zaleski_footer_menu_2 %}
             {% for item in menus[settings.zaleski_footer_menu_2] %}
+            
                 menu2Links.push({ text: "{{ item.name | escape('js') }}", url: "{{ item.url | escape('js') }}" });
             {% endfor %}
         {% endif %}

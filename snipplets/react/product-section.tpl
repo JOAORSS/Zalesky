@@ -8,18 +8,15 @@ window.addEventListener('load', function() {
     if (window.renderZaleskiProductSection) {
         var productsList = [];
         
-        {# Assumindo que você passa uma coleção de produtos do Twig para este snipplet como 'section_products' #}
         {% for product in section_products %}
-            {% if loop.index <= 8 %} {# Limitando a 8 produtos para não pesar #}
+            {% if loop.index <= 8 %}
                 
-                {# Lógica de Tag/Badge do Twig #}
                 {% set badge_text = '' %}
                 {% if product.promotional_offer %}
                     {% set badge_text = 'Oferta' %}
                 {% elseif product.free_shipping %}
                     {% set badge_text = 'Frete Grátis' %}
                 {% else %}
-                    {# Fallback ou tag customizada #}
                     {% set badge_text = 'Best Seller' %}
                 {% endif %}
 
