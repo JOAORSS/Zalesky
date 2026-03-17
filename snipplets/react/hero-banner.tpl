@@ -45,5 +45,3 @@
       window.renderZaleskiHeroCarousel('react-hero-banner', customSlides.length > 0 ? customSlides : null);
   });
 </script>
-
-{% snipplet "react/react-bundle.tpl" %}

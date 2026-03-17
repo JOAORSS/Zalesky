@@ -145,6 +145,9 @@
 		})();
 		</script>
 
+
+		{# React Widgets Bundle #}
+		{% include "snipplets/react/react-bundle.tpl" %}
 	</body>
 </html>
 

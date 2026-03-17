@@ -53,11 +53,16 @@
 {% elseif section_select == 'new' %} {#  **** New products ****  #}
 
 	{% if show_help or (show_component_help and not has_products) %}
-		{% include 'snipplets/defaults/home/featured_products_help.tpl' with { products_title: 'Novedades'| translate, section_id: 'new' }  %}
+		{% include 'snipplets/defaults/home/featured_products_help.tpl' with { 
+			products_title: 'Novedades'| translate, 
+			section_id: 'new', 
+			'badge_with': 'Lançamento'
+		}  %}
 	{% else %}
 		{% include 'snipplets/react/product-section.tpl' with {
 			'section_products': sections.new.products,
-			'section_title': 'Novedades' | translate
+			'section_title': 'Novedades' | translate,
+			'badge_with': 'Lançamento'
 		} %}
 	{% endif %}
 

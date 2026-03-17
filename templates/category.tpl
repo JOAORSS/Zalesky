@@ -33,70 +33,176 @@
         </div>
     </div>
 
-    {% if category.description %}
-
-		{% if '[TEMA]' in category.description %}
-			{% set description = category.description | split('[TEMA]') | join('') %}
-		{% else %}
-			{% set description = category.description %}
-		{% endif %}		
-
-        <p class="mt-2 mb-3 mt-md-0 mb-md-4 container-fluid" style="text-align: center;">{{ description }}</p>
-    {% endif %}
-
 {% endif %}
 
-<section class="js-category-controls-prev category-controls-sticky-detector"></section>
-<section class="js-category-controls {% if desktop_category_controls_transparent %}js-category-controls-transparent-md category-controls-transparent-md{% endif %} category-controls {% if not settings.filters_desktop_modal %}position-relative-md{% endif %} container-fluid visible-when-content-ready">
-	<div class="row align-items-center">
-		<div class="col">
-			<div class="row align-items-center">
-				<div class="col-auto">
-					<div class="category-breadcrumbs-container d-none d-md-block">
-						{% include "snipplets/breadcrumbs.tpl" %}
-					</div>
-					{% embed "snipplets/page-header.tpl" with {'breadcrumbs': false} %}
-					    {% block page_header_text %}{{ category.name }}{% endblock page_header_text %}
-					{% endembed %}
-				</div>
-				<div class="visible-when-content-ready col text-right d-none d-md-block">
-					{% include "snipplets/grid/filters.tpl" with {applied_filters: true} %}
-				</div>
-			</div>
-		</div>
-		<div class="col-12 col-md-auto d-none d-md-block">
-			{% if products %}
-				{{ component(
-                    'sort-by',{
-                        label: false,
-                        sort_by_classes: {
-                            select_group: "form-group-small d-inline-block w-auto mb-0",
-                            select: "btn btn-default btn-medium text-left font-weight-bold ",
-                            select_svg: "icon-inline icon-w-14 icon-lg icon-rotate-90",
-                        },
-                        select_svg_id: 'chevron'
-					}) 
-                }}
-			{% endif %}
-		</div>
-		{% include 'snipplets/grid/filters-modals.tpl' %}
-	</div>
-</section>
-{% if category.description and not is_theme_active %} 
-	<p class="mt-2 mb-3 mt-md-0 mb-md-4 container-fluid">{{ category.description }}</p> 
-{% endif %}
-<div class="container-fluid visible-when-content-ready d-md-none">
-	{% include "snipplets/grid/filters.tpl" with {mobile: true, applied_filters: true} %}
+<div class="d-none d-md-block">
+    {% include "snipplets/breadcrumbs.tpl" %}
 </div>
 
-<section class="js-category-body category-body mt-2 mt-md-{% if settings.filters_desktop_modal or (not settings.filters_desktop_modal and not has_filters_available) %}0{% else %}4 pt-md-1{% endif %}">
-	<div class="container-fluid">
-		<div class="row">
-			{% include "snipplets/grid/filters-sidebar.tpl" %}
-			{% include 'snipplets/grid/products-list.tpl' %}
-		</div>
-	</div>
-</section>
+<div id="react-zaleski-category-top"></div>
+
+<script>
+(function() {
+    function initCategoryTop() {
+        if (window.renderZaleskiCategoryTop) {
+            var productCount = "{{ products | length }}";
+            var countLabel = productCount === "1" ? "produto" : "produtos";
+
+            var currentSort = "{{ sort_by | default('user-defined') }}"; 
+            var rawSortOptions = [
+                { label: "Destaque", value: "user-defined" },
+                { label: "Mais Vendidos", value: "best-selling" },
+                { label: "Mais Novo ao mais Antigo", value: "created-descending" },
+                { label: "Mais Antigo ao mais Novo", value: "created-ascending" },
+                { label: "Preço: Menor ao Maior", value: "price-ascending" },
+                { label: "Preço: Maior ao Menor", value: "price-descending" },
+                { label: "A - Z", value: "alpha-ascending" },
+                { label: "Z - A", value: "alpha-descending" }
+            ];
+
+            var sortOptionsList = [];
+            var activeSortLabel = "Destaque";
+
+            for (var i = 0; i < rawSortOptions.length; i++) {
+                var isActive = currentSort === rawSortOptions[i].value;
+                if (isActive) {
+                    activeSortLabel = rawSortOptions[i].label;
+                }
+                sortOptionsList.push({
+                    label: rawSortOptions[i].label,
+                    url: "?sort_by=" + rawSortOptions[i].value,
+                    active: isActive
+                });
+            }
+
+            {% set descriptionHeader = category.description %}
+            {% if '[TEMA]' in category.description %}
+                {% set descriptionHeader = category.description | split('[TEMA]') | join('') %}
+            {% endif %}
+
+            var totalAppliedFilters = 0;
+            
+            {% if product_filters is not empty %}
+                {% for product_filter in product_filters %}
+                    {% for value in product_filter.values %}
+                        {% if value.selected %}
+                            totalAppliedFilters++;
+                        {% endif %}
+                    {% endfor %}
+                {% endfor %}
+            {% endif %}
+
+            var props = {
+                title: "{{ category.name | default(search.query) | escape('js') }}",
+                countText: productCount + " " + countLabel,
+                description: "{{ descriptionHeader | escape('js') }}",
+                filterCount: totalAppliedFilters, 
+                activeSortLabel: activeSortLabel,
+                sortOptions: sortOptionsList
+            };
+
+            window.renderZaleskiCategoryTop('react-zaleski-category-top', props);
+        }
+    }
+    
+    if (document.readyState !== 'loading') initCategoryTop();
+    else document.addEventListener('DOMContentLoaded', initCategoryTop);
+})();
+</script>
+
+<section class="js-category-controls-prev category-controls-sticky-detector"></section>
+{% include 'snipplets/grid/filters-modals.tpl' %}
+{% include "snipplets/grid/filters-sidebar.tpl" %}
+
+<div id="react-zaleski-product-grid"></div>
+
+<script>
+(function() {
+    function initProductGrid() {
+        if (window.renderZaleskiProductGrid) {
+            var productsList = [];
+            {% for product in products %}
+                productsList.push({
+                    id: {{ product.id }},
+                    url: "{{ product.url | escape('js') }}",
+                    name: "{{ product.name | escape('js') }}",
+                    price: "{{ product.price | money | escape('js') }}",
+                    comparePrice: {% if product.compare_at_price %}"{{ product.compare_at_price | money | escape('js') }}"{% else %}null{% endif %},
+                    mainImage: "{{ product.featured_image | product_image_url('large') | escape('js') }}",
+                    hoverImage: {% if product.other_images | length > 1 %}"{{ product.other_images[1] | product_image_url('large') | escape('js') }}"{% else %}null{% endif %},
+                    badge: {% if product.promotional_offer %}"{{ product.promotional_offer.script[0].name | escape('js') }}"{% elseif product.free_shipping %}"Frete Grátis"{% else %}null{% endif %},
+                    scarcityText: {% if product.stock > 0 and product.stock <= 3 %}"Somente {{ product.stock }} restantes"{% else %}null{% endif %},
+                    colors: [] 
+                });
+            {% endfor %}
+
+            var props = {
+                products: productsList,
+                pagination: {
+                    hasNextPage: {{ pages.current < pages.amount ? 'true' : 'false' }},
+                    nextPageUrl: "{{ pages.next | escape('js') }}",
+                    showingText: "Mostrando {{ products | length }} de {{ category.products_count | default(search.results_count) }} produtos",
+                    loadMoreText: "{{ 'Carregar mais produtos' | translate | escape('js') }}"
+                }
+            };
+
+            window.renderZaleskiProductGrid('react-zaleski-product-grid', props);
+        }
+    }
+
+    if (document.readyState !== 'loading') initProductGrid();
+    else document.addEventListener('DOMContentLoaded', initProductGrid);
+})();
+</script>
+<script>
+window.addEventListener('zaleski:applyFilters', async function(e) {
+    var url = e.detail.url;
+    
+    window.history.pushState({ path: url }, '', url);
+    
+    try {
+        var response = await fetch(url);
+        var html = await response.text();
+        
+        var parser = new DOMParser();
+        var newDoc = parser.parseFromString(html, 'text/html');
+        
+        var targets = [
+            'react-zaleski-category-top',
+            'react-zaleski-filters-sidebar',
+            'react-zaleski-product-grid'
+        ];
+        
+        targets.forEach(function(id) {
+            var oldEl = document.getElementById(id);
+            var newEl = newDoc.getElementById(id);
+            if (oldEl && newEl) {
+                oldEl.outerHTML = newEl.outerHTML;
+            }
+        });
+        
+        var scripts = newDoc.querySelectorAll('script');
+        scripts.forEach(function(script) {
+            var isTargetScript = targets.some(function(id) {
+                return script.innerHTML.includes("'" + id + "'") || script.innerHTML.includes('"' + id + '"');
+            });
+            
+            if (isTargetScript) {
+                var newScript = document.createElement('script');
+                newScript.innerHTML = script.innerHTML;
+                document.body.appendChild(newScript);
+                setTimeout(function() { newScript.remove(); }, 100);
+            }
+        });
+
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+
+    } catch (err) {
+        console.error('Falha no AJAX de filtros, recorrendo ao reload:', err);
+        window.location.href = url;
+    }
+});
+</script>
 {% elseif show_help %}
 	{# Category Placeholder #}
 	{% include 'snipplets/defaults/show_help_category.tpl' %}

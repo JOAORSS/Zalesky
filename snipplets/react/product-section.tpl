@@ -10,15 +10,19 @@ window.addEventListener('load', function() {
         
         {% for product in section_products %}
             {% if loop.index <= 8 %}
-                
+
                 {% set badge_text = '' %}
-                {% if product.promotional_offer %}
-                    {% set badge_text = 'Oferta' %}
-                {% elseif product.free_shipping %}
-                    {% set badge_text = 'Frete Grátis' %}
+                {% if badge_with %}
+                    {% set badge_text = badge_with %}
                 {% else %}
-                    {% set badge_text = 'Best Seller' %}
-                {% endif %}
+                    {% if product.promotional_offer %}
+                        {% set badge_text = 'Oferta' | translate %}
+                    {% elseif product.free_shipping %}
+                        {% set badge_text = 'Frete Grátis' | translate %}
+                    {% else %}
+                        {% set badge_text = 'Best Seller' | translate %}
+                    {% endif %}
+                {% endif %}       
 
                 productsList.push({
                     url: "{{ product.url | escape('js') }}",

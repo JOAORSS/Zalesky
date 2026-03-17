@@ -1,4 +1,4 @@
-<div class="visible-when-content-ready pl-0 col-auto {% if (settings.filters_desktop_modal and not has_filters_available) or not settings.filters_desktop_modal %}d-md-none{% endif %}">
+{# <div class="visible-when-content-ready pl-0 col-auto {% if (settings.filters_desktop_modal and not has_filters_available) or not settings.filters_desktop_modal %}d-md-none{% endif %}">
    {% if products %}
     <a href="#" class="js-modal-open js-fullscreen-modal-open btn btn-default btn-medium form-select" data-toggle="#nav-filters" data-modal-url="modal-fullscreen-filters" data-component="filter-button">
         <div class="row align-items-center">
@@ -54,4 +54,4 @@
             {% endif %}
         {% endblock %}
     {% endembed %}
-</div>
+</div> #}
