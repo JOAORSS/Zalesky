@@ -483,6 +483,7 @@ Menú de navegación
 		name = zaleski_footer_copyright
 		description = Texto de Copyright
 
+
 Página de inicio
 	meta
 		icon = home
@@ -1649,6 +1650,14 @@ Listado de productos
 	checkbox
 		name = product_installments
 		description = Mostrar cuotas en listado de productos
+	collapse
+		title = Zaleski: SEO da Categoria
+	i18n_input
+		name = category_seo_title
+		description = Título de SEO (Opcional)
+	textarea
+		name = category_seo_description
+		description = Descrição de SEO (Suporta HTML)
 
 Detalle de producto
 	meta

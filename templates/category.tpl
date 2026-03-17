@@ -154,6 +154,33 @@
     else document.addEventListener('DOMContentLoaded', initProductGrid);
 })();
 </script>
+
+<div id="react-zaleski-category-seo"></div>
+
+<script>
+(function() {
+    function initCategorySeo() {
+        if (window.renderZaleskiCategorySeo) {
+            
+            var dynamicTitle = "{{ settings.category_seo_title | escape('js') }}";
+            if (!dynamicTitle) {
+                dynamicTitle = "{{ category.name | default(search.query) | escape('js') }} — {{ store.name | escape('js') }}";
+            }
+
+            var props = {
+                title: dynamicTitle,
+                description: "{{ settings.category_seo_description | escape('js') }}"
+            };
+
+            window.renderZaleskiCategorySeo('react-zaleski-category-seo', props);
+        }
+    }
+
+    if (document.readyState !== 'loading') initCategorySeo();
+    else document.addEventListener('DOMContentLoaded', initCategorySeo);
+})();
+</script>
+
 <script>
 window.addEventListener('zaleski:applyFilters', async function(e) {
     var url = e.detail.url;
