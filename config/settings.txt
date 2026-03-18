@@ -412,10 +412,6 @@ Menú de navegación
 		description = Usar menú vertical como en celulares (menú hamburguesa)
 	title
 		title = Componentes PDP
-	text
-		name = pdp_api_url
-		description = URL da API de componentes
-		default = https://nextt-pdp-core.vercel.app
 
 	collapse
 		title = Zaleski: Rodapé e Newsletter
@@ -1744,6 +1740,38 @@ Detalle de producto
 		description = ID de tu perfil de Facebook
 	subtitle
 		subtitle = Es necesario si querés moderar los comentarios. Podés obtenerlo <a target='_blank' href='https://findmyfbid.in/'>acá</a>
+
+	collapse
+		title = Zaleski: Configurações da PDP
+	i18n_input
+		name = pdp_installments_count
+		description = Número de parcelas sem juros (ex: 6)
+		default = 6
+	i18n_input
+		name = pdp_personalization_text
+		description = Texto da Personalização
+		default = Precisa de ajustes? Saiba sobre personalização
+	textarea
+		name = pdp_personalization_content
+		description = Conteúdo do Modal de Personalização (HTML)
+	i18n_input
+		name = pdp_personalization_link
+		description = Link do botão do Modal (ex: WhatsApp ou Instagram)
+	i18n_input
+		name = pdp_benefit_1
+		description = Benefício 1 (HTML/SVG + Texto)
+	i18n_input
+		name = pdp_benefit_2
+		description = Benefício 2 (HTML/SVG + Texto)
+	i18n_input
+		name = pdp_benefit_3
+		description = Benefício 3 (HTML/SVG + Texto)
+	textarea
+		name = pdp_fabric
+		description = Conteúdo: Tecido e Ajuste (HTML)
+	textarea
+		name = pdp_shipping
+		description = Conteúdo: Entrega e Trocas (HTML)
 
 Carrito de compras
 	meta

@@ -121,18 +121,47 @@
     function initProductGrid() {
         if (window.renderZaleskiProductGrid) {
             var productsList = [];
+            
             {% for product in products %}
+                var colorList = [];
+                var seenColors = [];
+                
+                {% if product.variations %}
+                    {% for variation in product.variations %}
+                        {% for option in variation.options %}
+                            {% if option.custom_data %}
+                                if (!seenColors.includes("{{ option.custom_data }}")) {
+                                    seenColors.push("{{ option.custom_data }}");
+                                    colorList.push({ hex: "{{ option.custom_data }}" });
+                                }
+                            {% endif %}
+                        {% endfor %}
+                    {% endfor %}
+                {% endif %}
+
+                {% set product_badge = 'null' %}
+                {% if product.compare_at_price > product.price %}
+                    {% set product_badge = '"Oferta"' %}
+                {% else %}
+                    {% set tags_string = product.tags | join(',') | lower %}
+                    {% if 'lançamento' in tags_string or 'novo' in tags_string %}
+                        {% set product_badge = '"Lançamento"' %}
+                    {% elseif 'best seller' in tags_string or 'destaque' in tags_string %}
+                        {% set product_badge = '"Best Seller"' %}
+                    {% endif %}
+                {% endif %}
+
                 productsList.push({
                     id: {{ product.id }},
                     url: "{{ product.url | escape('js') }}",
                     name: "{{ product.name | escape('js') }}",
                     price: "{{ product.price | money | escape('js') }}",
-                    comparePrice: {% if product.compare_at_price %}"{{ product.compare_at_price | money | escape('js') }}"{% else %}null{% endif %},
+                    comparePrice: {% if product.compare_at_price > product.price %}"{{ product.compare_at_price | money | escape('js') }}"{% else %}null{% endif %},
                     mainImage: "{{ product.featured_image | product_image_url('large') | escape('js') }}",
                     hoverImage: {% if product.other_images | length > 1 %}"{{ product.other_images[1] | product_image_url('large') | escape('js') }}"{% else %}null{% endif %},
-                    badge: {% if product.promotional_offer %}"{{ product.promotional_offer.script[0].name | escape('js') }}"{% elseif product.free_shipping %}"Frete Grátis"{% else %}null{% endif %},
-                    scarcityText: {% if product.stock > 0 and product.stock <= 3 %}"Somente {{ product.stock }} restantes"{% else %}null{% endif %},
-                    colors: [] 
+                    badge: {{ product_badge | raw }},
+                    scarcityText: {% if product.stock > 0 and product.stock < 5 %}"Somente {{ product.stock }} restante{% if product.stock > 1 %}s{% endif %}"{% else %}null{% endif %},
+                    colors: colorList
                 });
             {% endfor %}
 
