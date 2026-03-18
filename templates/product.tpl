@@ -1,4 +1,5 @@
 {% include 'snipplets/page-header.tpl' with { breadcrumbs: true } %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@5.3.8/dist/photoswipe.css">
 
 <div id="react-zaleski-product-details"></div>
 
