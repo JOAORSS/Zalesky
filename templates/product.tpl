@@ -158,8 +158,6 @@
                 {% set cross_sell_product = complementary_product_list | first %}
             {% endif %}
 
-            console.log({{ cross_sell_product | json_encode }});
-
             {% if cross_sell_product %}
                 crossProps = {
                     main: {
@@ -196,6 +194,7 @@
             var chkCross = setInterval(function() {
                 if (document.getElementById('react-zaleski-pdp-cross-sell')) {
                     clearInterval(chkCross);
+                    crossProps.discount = {{ settings.pdp_cross_sell_discount | default(15) | escape('js') }};
                     window.renderZaleskiProductCrossSell('react-zaleski-pdp-cross-sell', crossProps);
                 }
             }, 50);

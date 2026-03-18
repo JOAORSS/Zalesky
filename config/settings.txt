@@ -412,7 +412,7 @@ Menú de navegación
 		description = Usar menú vertical como en celulares (menú hamburguesa)
 	title
 		title = Componentes PDP
-
+		
 	collapse
 		title = Zaleski: Rodapé e Newsletter
 		backto = _top
@@ -1757,6 +1757,10 @@ Detalle de producto
 	i18n_input
 		name = pdp_personalization_link
 		description = Link do botão do Modal (ex: WhatsApp ou Instagram)
+	i18n_input
+		name = pdp_cross_sell_discount
+		description = Desconto do Compre Junto (apenas números, ex: 15)
+		default = 15
 	i18n_input
 		name = pdp_benefit_1
 		description = Benefício 1 (HTML/SVG + Texto)
