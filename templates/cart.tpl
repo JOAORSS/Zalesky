@@ -61,4 +61,3 @@
     </form>
     <div id="store-curr" class="hidden">{{ cart.currency }}</div>
 </div>
-

@@ -8,32 +8,29 @@ window.addEventListener('load', function() {
     if (window.renderZaleskiProductSection) {
         var productsList = [];
         
-        {% for product in section_products %}
-            {% if loop.index <= 8 %}
-
-                {% set badge_text = '' %}
-                {% if badge_with %}
-                    {% set badge_text = badge_with %}
+        {% for product in section_products | slice(0, 4) %}
+            {% set badge_text = '' %}
+            {% if badge_with %}
+                {% set badge_text = badge_with %}
+            {% else %}
+                {% if product.promotional_offer %}
+                    {% set badge_text = 'Oferta' | translate %}
+                {% elseif product.free_shipping %}
+                    {% set badge_text = 'Frete Grátis' | translate %}
                 {% else %}
-                    {% if product.promotional_offer %}
-                        {% set badge_text = 'Oferta' | translate %}
-                    {% elseif product.free_shipping %}
-                        {% set badge_text = 'Frete Grátis' | translate %}
-                    {% else %}
-                        {% set badge_text = 'Best Seller' | translate %}
-                    {% endif %}
-                {% endif %}       
+                    {% set badge_text = 'Best Seller' | translate %}
+                {% endif %}
+            {% endif %}       
 
-                productsList.push({
-                    url: "{{ product.url | escape('js') }}",
-                    image: "{{ product.featured_image | product_image_url('large') | escape('js') }}",
-                    name: "{{ product.name | escape('js') }}",
-                    price: "{{ product.price | money | escape('js') }}",
-                    {% if badge_text %}
-                    badge: "{{ badge_text | escape('js') }}"
-                    {% endif %}
-                });
-            {% endif %}
+            productsList.push({
+                url: "{{ product.url | escape('js') }}",
+                image: "{{ product.featured_image | product_image_url('large') | escape('js') }}",
+                name: "{{ product.name | escape('js') }}",
+                price: "{{ product.price | money | escape('js') }}",
+                {% if badge_text %}
+                badge: "{{ badge_text | escape('js') }}"
+                {% endif %}
+            });
         {% endfor %}
 
         var sectionProps = {

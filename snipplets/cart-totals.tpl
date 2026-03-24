@@ -322,7 +322,7 @@
         {% if settings.continue_buying %}
           <div class="row mb-2">
             <div class="text-center w-100">
-              <a href="{% if cart_page %}{{ store.products_url }}{% else %}#{% endif %}" class="{% if not cart_page %}js-modal-close {% if not settings.show_tab_nav %}js-fullscreen-modal-close{% endif %}{% endif %} btn-link">{{ 'Ver más productos' | translate }}</a>
+              <a href="{{ store.products_url }}" class="btn-link">{{ 'Ver más productos' | translate }}</a>
             </div>
           </div>
         {% endif %}

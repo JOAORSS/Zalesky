@@ -24,11 +24,16 @@
 {% elseif section_select == 'products' %} {#  **** Featured products ****  #}
 
 	{% if show_help or (show_component_help and not has_products) %}
-		{% include 'snipplets/defaults/home/featured_products_help.tpl' with { products_title: 'Destacados' | translate, section_id: 'featured' }  %}
+		{% include 'snipplets/defaults/home/featured_products_help.tpl' with { 
+			products_title: 'Destacados' | translate, 
+			section_id: 'featured', 
+			'section_url': '/destaques' 
+		}  %}
 	{% else %}
 		{% include 'snipplets/react/product-section.tpl' with {
 			'section_products': sections.primary.products,
-			'section_title': 'Destacados' | translate
+			'section_title': 'Destacados' | translate,
+			'section_url': '/destaques'
 		} %}
 	{% endif %}
 
@@ -56,13 +61,15 @@
 		{% include 'snipplets/defaults/home/featured_products_help.tpl' with { 
 			products_title: 'Novedades'| translate, 
 			section_id: 'new', 
-			'badge_with': 'Lançamento'
+			'badge_with': 'Lançamento',
+			'section_url': '/lancamentos'
 		}  %}
 	{% else %}
 		{% include 'snipplets/react/product-section.tpl' with {
 			'section_products': sections.new.products,
 			'section_title': 'Novedades' | translate,
-			'badge_with': 'Lançamento'
+			'badge_with': 'Lançamento',
+			'section_url': '/lancamentos'
 		} %}
 	{% endif %}
 
@@ -83,7 +90,8 @@
 	{% else %}
 		{% include 'snipplets/react/product-section.tpl' with {
 			'section_products': sections.sale.products,
-			'section_title': 'Ofertas' | translate
+			'section_title': 'Ofertas' | translate,
+			'section_url': '/ofertas'
 		} %}
 	{% endif %}
 

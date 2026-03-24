@@ -45,7 +45,7 @@
 (function() {
     function initCategoryTop() {
         if (window.renderZaleskiCategoryTop) {
-            var productCount = "{{ products | length }}";
+            var productCount = "{{ category.products_count | default(search.results_count) }}";
             var countLabel = productCount === "1" ? "produto" : "produtos";
 
             var currentSort = "{{ sort_by | default('user-defined') }}"; 
