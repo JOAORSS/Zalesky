@@ -13,12 +13,23 @@
     <div class="hdr-in">
         {# Hamburger menu (mobile) #}
         <div class="hdr-left">
-            <div class="hamburger js-toggle-mobile-menu" aria-label="Menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
+            <div id="react-zaleski-mobile-menu" class="hamburger js-toggle-mobile-menu" aria-label="Menu"></div>
         </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            if (window.renderZaleskiMobileMenu) {
+            window.renderZaleskiMobileMenu('react-zaleski-mobile-menu', {
+                links: [
+                {% for item in navigation %}
+                    { label: '{{ item.name }}', url: '{{ item.url | setting_url }}' },
+                {% endfor %}
+                ]
+            });
+            }
+        });
+    </script>
+
 
         {# Logo #}
         <a href="{{ store.url }}" class="logo">
@@ -72,6 +83,7 @@
             }
         });
         </script>
+
 </header>
 
 {# Show cookie validation message #}
