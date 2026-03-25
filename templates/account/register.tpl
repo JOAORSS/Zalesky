@@ -4,7 +4,7 @@
 
 <section class="account-page">
 	<div class="container-fluid">
-		<div class="row">
+		<div class="row justify-content-center">
 			<div class="col-md-6">
 				<p class="mb-4">{{ 'Comprá más rápido y llevá el control de tus pedidos, ¡en un solo lugar!'| translate }}</p>
 
