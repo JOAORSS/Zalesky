@@ -246,41 +246,105 @@
             }
         }, 50);
 
-        // 9. CAROUSELS (IF CATEGORY)
-        {% if category %}
-            var chkShelves = setInterval(function() {
-                if (window.renderZaleskiCarousel && 
-                    document.getElementById('react-zaleski-pdp-related-shelf') && 
-                    document.getElementById('react-zaleski-pdp-color-shelf')) {
-                    
-                    clearInterval(chkShelves);
-                    var productsList = [];
-                    {% set products_list = category.products | shuffle | slice(0, 4) %}
-                    {% for p in products_list %}
-                        {% if p.id != product.id %}
-                            productsList.push({
-                                id: {{ p.id }},
-                                name: "{{ p.name | escape('js') }}",
-                                price: "{{ p.price | money | escape('js') }}",
-                                comparePrice: {% if p.compare_at_price > p.price %}"{{ p.compare_at_price | money | escape('js') }}"{% else %}null{% endif %},
-                                imgUrl: "{{ p.featured_image | product_image_url('medium') | escape('js') }}",
-                                url: "{{ p.url | escape('js') }}"
-                            });
-                        {% endif %}
+        // 9. CAROUSELS
+        var chkShelves = setInterval(function() {
+            if (window.renderZaleskiCarousel && document.getElementById('react-zaleski-pdp-related-shelf')) {
+                clearInterval(chkShelves);
+
+                var currentProductId = parseInt(window.ZALESKI_PRODUCT_ID);
+                var usedIds = [currentProductId];
+                
+                var rawComplementary = [];
+                {% if complementary_product_list %}
+                    {% for p in complementary_product_list | take(4) %}
+                        rawComplementary.push({
+                            id: {{ p.id }},
+                            name: "{{ p.name | escape('js') }}",
+                            price: "{{ p.price | money | escape('js') }}",
+                            comparePrice: {% if p.compare_at_price > p.price %}"{{ p.compare_at_price | money | escape('js') }}"{% else %}null{% endif %},
+                            imgUrl: "{{ p.featured_image | product_image_url('medium') | escape('js') }}",
+                            url: "{{ p.url | escape('js') }}"
+                        });
                     {% endfor %}
+                {% endif %}
 
+                var rawRelated = [];
+                {% if product.related_products %}
+                    {% for p in product.related_products | take(10) %}
+                        rawRelated.push({
+                            id: {{ p.id }},
+                            name: "{{ p.name | escape('js') }}",
+                            price: "{{ p.price | money | escape('js') }}",
+                            comparePrice: {% if p.compare_at_price > p.price %}"{{ p.compare_at_price | money | escape('js') }}"{% else %}null{% endif %},
+                            imgUrl: "{{ p.featured_image | product_image_url('medium') | escape('js') }}",
+                            url: "{{ p.url | escape('js') }}"
+                        });
+                    {% endfor %}
+                {% endif %}
+
+                var rawCategory = [];
+                {% if product.category.products %}
+                    {% for p in product.category.products | take(30) %}
+                        rawCategory.push({
+                            id: {{ p.id }},
+                            name: "{{ p.name | escape('js') }}",
+                            price: "{{ p.price | money | escape('js') }}",
+                            comparePrice: {% if p.compare_at_price > p.price %}"{{ p.compare_at_price | money | escape('js') }}"{% else %}null{% endif %},
+                            imgUrl: "{{ p.featured_image | product_image_url('medium') | escape('js') }}",
+                            url: "{{ p.url | escape('js') }}"
+                        });
+                    {% endfor %}
+                {% endif %}
+
+                var shuffledCat = rawCategory.slice().sort(function() { return 0.5 - Math.random() });
+
+                var relatedList = [];
+                
+                for (var i = 0; i < rawComplementary.length; i++) {
+                    if (relatedList.length < 4 && usedIds.indexOf(rawComplementary[i].id) === -1) {
+                        relatedList.push(rawComplementary[i]);
+                        usedIds.push(rawComplementary[i].id);
+                    }
+                }
+                
+                for (var j = 0; j < shuffledCat.length; j++) {
+                    if (relatedList.length < 4 && usedIds.indexOf(shuffledCat[j].id) === -1) {
+                        relatedList.push(shuffledCat[j]);
+                        usedIds.push(shuffledCat[j].id);
+                    }
+                }
+
+                var colorList = [];
+                
+                for (var k = 0; k < rawRelated.length; k++) {
+                    if (colorList.length < 4 && usedIds.indexOf(rawRelated[k].id) === -1) {
+                        colorList.push(rawRelated[k]);
+                        usedIds.push(rawRelated[k].id);
+                    }
+                }
+                
+                for (var m = 0; m < shuffledCat.length; m++) {
+                    if (colorList.length < 4 && usedIds.indexOf(shuffledCat[m].id) === -1) {
+                        colorList.push(shuffledCat[m]);
+                        usedIds.push(shuffledCat[m].id);
+                    }
+                }
+
+                if (relatedList.length > 0) {
                     window.renderZaleskiCarousel('react-zaleski-pdp-related-shelf', {
-                        title: "Quem viu, viu também",
-                        items: productsList
-                    });
-
-                    window.renderZaleskiCarousel('react-zaleski-pdp-color-shelf', {
-                        title: "Mais cores disponíveis",
-                        items: productsList
+                        title: "Get the look",
+                        items: relatedList
                     });
                 }
-            }, 50);
-        {% endif %}
+
+                if (colorList.length > 0 && document.getElementById('react-zaleski-pdp-color-shelf')) {
+                    window.renderZaleskiCarousel('react-zaleski-pdp-color-shelf', {
+                        title: "Mais nesta cor",
+                        items: colorList
+                    });
+                }
+            }
+        }, 50);
 
         // 10. DRAMERS
         var chkDramers = setInterval(function() {
