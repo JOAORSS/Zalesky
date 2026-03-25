@@ -146,7 +146,11 @@
             var crossProps = { main: null, related: null };
             {% set cross_sell_product = null %}
             {% if complementary_product_list | length > 0 %}
-                {% set cross_sell_product = complementary_product_list | first %}
+                {% for p in complementary_product_list %}
+                    {% if p.available and not cross_sell_product %}
+                        {% set cross_sell_product = p %}
+                    {% endif %}
+                {% endfor %}
             {% endif %}
 
             {% if cross_sell_product %}
@@ -170,10 +174,24 @@
                             {% for variation in cross_sell_product.variations %}
                                 {
                                     id: "{{ variation.id }}",
+                                    name: "{{ variation.name | escape('js') }}",
                                     options: [
                                         {% for option in variation.options %}
                                             { id: "{{ option.id }}", name: "{{ option.name | escape('js') }}" }{% if not loop.last %},{% endif %}
                                         {% endfor %}
+                                    ]
+                                }{% if not loop.last %},{% endif %}
+                            {% endfor %}
+                        ],
+                        variantsMap: [
+                            {% for variant in cross_sell_product.variants %}
+                                {
+                                    id: {{ variant.id }},
+                                    available: {% if variant.available %}true{% else %}false{% endif %},
+                                    options: [
+                                        {% if variant.option0 %}"{{ variant.option0 | escape('js') }}"{% endif %}
+                                        {% if variant.option1 %}, "{{ variant.option1 | escape('js') }}"{% endif %}
+                                        {% if variant.option2 %}, "{{ variant.option2 | escape('js') }}"{% endif %}
                                     ]
                                 }{% if not loop.last %},{% endif %}
                             {% endfor %}
@@ -284,7 +302,7 @@
 
                 var rawCategory = [];
                 {% if product.category.products %}
-                    {% for p in product.category.products | take(30) %}
+                    {% for p in product.category.products | take(40) %}
                         rawCategory.push({
                             id: {{ p.id }},
                             name: "{{ p.name | escape('js') }}",
