@@ -47,20 +47,8 @@
                     <div class="divider mt-3 pt-2"></div>
 
                 {% else %}
-                    {% if product_filter.has_products %}
 
-                        <script id="zaleski-colors-data" type="application/json">
-                        {% set comma = false %}
-                        [
-                            {% for value in product_filter.values %}
-                                {% if value.color_type == 'insta_color' and value.color_hexa %}
-                                    {% if comma %},{% endif %}
-                                    {"name": "{{ value.name | escape('js') }}", "hex": "{{ value.color_hexa | escape('js') }}"}
-                                    {% set comma = true %}
-                                {% endif %}
-                            {% endfor %}
-                        ]
-                        </script>
+                    {% if product_filter.has_products %}
                     
                         <div class="js-accordion-container" data-store="filters-group" data-component="list.filter-{{ product_filter.type }}" data-component-value="{{ product_filter.key }}">
                             <div class="mb-3 mt-4 subtitle">{{product_filter.name}}</div>

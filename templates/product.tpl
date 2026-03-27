@@ -141,6 +141,7 @@
             }
         }, 50);
 
+
         // --- 2. CROSS-SELL COM IDs DE VARIANTE ---
         if (window.renderZaleskiProductCrossSell) {
             var crossProps = { main: null, related: null };
@@ -439,6 +440,14 @@
     else document.addEventListener('DOMContentLoaded', initPDP);
 })();
 </script>
+
+<div style="position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden;" aria-hidden="true" class="zaleski-hidden-shipping-engine">
+    <div id="product-shipping-container" class="product-shipping-calculator list w-100" data-shipping-url="{{ store.shipping_calculator_url }}">
+        {% if store.has_shipping %}
+            {% include "snipplets/shipping/shipping-calculator.tpl" with {'shipping_calculator_variant' : product.selected_or_first_available_variant, 'product_detail': true} %}
+        {% endif %}
+    </div>
+</div>
 
 <div id="react-zaleski-pdp-videos"></div>
 <div id="react-zaleski-pdp-personalization-modal"></div>

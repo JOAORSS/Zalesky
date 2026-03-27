@@ -308,12 +308,16 @@
 
     {% if show_product_fulfillment and not home_main_product %}
 
-        {# Shipping calculator and branch link #}
+        {# 1. A ÂNCORA DO REACT (A Marionete que o cliente vê) #}
+        <div id="react-zaleski-pdp-shipping"></div>
 
-        <div id="product-shipping-container" class="product-shipping-calculator list w-100" {% if not product.display_price or not product.has_stock %}style="display:none;"{% endif %} data-shipping-url="{{ store.shipping_calculator_url }}">
-            {% if store.has_shipping %}
-                {% include "snipplets/shipping/shipping-calculator.tpl" with {'shipping_calculator_variant' : product.selected_or_first_available_variant, 'product_detail': true} %}
-            {% endif %}
+        {# 2. O MOTOR NATIVO OCULTO (O Mestre dos Magos nos bastidores) #}
+        <div style="display: none;" aria-hidden="true" class="zaleski-hidden-shipping-engine">
+            <div id="product-shipping-container" class="product-shipping-calculator list w-100" {% if not product.display_price or not product.has_stock %}style="display:none;"{% endif %} data-shipping-url="{{ store.shipping_calculator_url }}">
+                {% if store.has_shipping %}
+                    {% include "snipplets/shipping/shipping-calculator.tpl" with {'shipping_calculator_variant' : product.selected_or_first_available_variant, 'product_detail': true} %}
+                {% endif %}
+            </div>
         </div>
 
         {% if store.branches %}
