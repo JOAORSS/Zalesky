@@ -441,13 +441,16 @@
 })();
 </script>
 
-<div style="position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden;" aria-hidden="true" class="zaleski-hidden-shipping-engine">
-    <div id="product-shipping-container" class="product-shipping-calculator list w-100" data-shipping-url="{{ store.shipping_calculator_url }}">
-        {% if store.has_shipping %}
-            {% include "snipplets/shipping/shipping-calculator.tpl" with {'shipping_calculator_variant' : product.selected_or_first_available_variant, 'product_detail': true} %}
-        {% endif %}
+<form id="product_form" class="js-product-form js-shipping-calculator-container" style="position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden;" aria-hidden="true">
+    <input type="hidden" name="add_to_cart" value="{{product.id}}" />
+    <div class="zaleski-hidden-shipping-engine">
+        <div id="product-shipping-container" class="product-shipping-calculator list w-100" data-shipping-url="{{ store.shipping_calculator_url }}">
+            {% if store.has_shipping %}
+                {% include "snipplets/shipping/shipping-calculator.tpl" with {'shipping_calculator_variant' : product.selected_or_first_available_variant, 'product_detail': true} %}
+            {% endif %}
+        </div>
     </div>
-</div>
+</form>
 
 <div id="react-zaleski-pdp-videos"></div>
 <div id="react-zaleski-pdp-personalization-modal"></div>

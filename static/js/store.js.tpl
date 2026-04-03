@@ -651,38 +651,10 @@ DOMContentLoaded.addEventOrExecute(() => {
             if (window.innerWidth > 768) {
         {% endif %}
 
-            {# Slim header on scroll #}
+            {# Slim header on scroll — DISABLED: unified in layout.tpl #}
 
             var navbarHeight = jQueryNuvem(".js-head-main").outerHeight();
             var topbarHeight = jQueryNuvem(".js-adbar").outerHeight();
-
-            window.addEventListener("scroll", function() {
-
-                var scrolledPosition = window.pageYOffset;
-
-                var header = jQueryNuvem(".js-head-main");
-                var navbarHeight = header.outerHeight();
-
-                if (scrolledPosition > navbarHeight) {
-                    header.addClass('compress').css('top', -topbarHeight + 'px' );
-                    {% if template == 'category' or template == 'search' %}
-                        if (window.innerWidth < 768) {
-                            setTimeout(function(){
-                                offsetCategories();
-                            },300);
-                        }
-                    {% endif %}
-                } else {
-                    header.removeClass('compress').css("top", "0px");
-                    {% if template == 'category' or template == 'search' %}
-                        if (window.innerWidth < 768) {
-                            setTimeout(function(){
-                                offsetCategories();
-                            },300);
-                        }
-                    {% endif %}
-                }
-            });
             
         {% if has_only_mobile_with_fixed_nav or has_only_desktop_with_fixed_nav %}
             }
@@ -3216,18 +3188,24 @@ DOMContentLoaded.addEventOrExecute(() => {
     jQueryNuvem(".js-calculate-shipping").on("click", function (e) {
 	    e.preventDefault();
 
-        {# Take the Zip code to all shipping calculators on screen #}
         let shipping_input_val = jQueryNuvem(e.currentTarget).closest(".js-shipping-calculator-form").find(".js-shipping-input").val();
 
         jQueryNuvem(".js-shipping-input").val(shipping_input_val);
 
-        {# Calculate on page load for both calculators: Product and Cart #}
-
-        if (jQueryNuvem(".js-cart-item").length) {
+        if (jQueryNuvem("#product-shipping-container").length) {
             LS.calculateShippingAjax(
-            jQueryNuvem('#cart-shipping-container').find(".js-shipping-input").val(),
-            '{{store.shipping_calculator_url | escape('js')}}',
-            jQueryNuvem("#cart-shipping-container").closest(".js-shipping-calculator-container") );
+                shipping_input_val,
+                '{{store.shipping_calculator_url | escape('js')}}',
+                jQueryNuvem("#product-shipping-container")
+            );
+        }
+
+        if (jQueryNuvem(".js-cart-item").length && jQueryNuvem("#cart-shipping-container").length) {
+            LS.calculateShippingAjax(
+                shipping_input_val,
+                '{{store.shipping_calculator_url | escape('js')}}',
+                jQueryNuvem("#cart-shipping-container").closest(".js-shipping-calculator-container")
+            );
         }
 
         jQueryNuvem(".js-shipping-calculator-current-zip").html(shipping_input_val);

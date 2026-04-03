@@ -131,16 +131,50 @@
 		(function() {
 			var header = document.querySelector('.js-head-main');
 			if (!header) return;
+			var adbar = document.querySelector('.section-adbar');
 			var lastY = 0;
-			var threshold = 60;
-			window.addEventListener('scroll', function() {
+			var ticking = false;
+			var shrunkThreshold = 60;
+			var adbarThreshold = 40;
+
+			function onScroll() {
 				var y = window.pageYOffset;
-				if (y > threshold && y > lastY) {
-					header.classList.add('hdr-shrunk');
-				} else if (y < lastY) {
-					header.classList.remove('hdr-shrunk');
+
+				// if (y > shrunkThreshold && y > lastY) {
+				// 	if (!header.classList.contains('hdr-shrunk')) {
+				// 		header.classList.add('hdr-shrunk');
+				// 	}
+				// } else if (y < lastY || y <= 0) {
+				// 	if (header.classList.contains('hdr-shrunk')) {
+				// 		header.classList.remove('hdr-shrunk');
+				// 	}
+				// }
+
+				if (adbar) {
+					if (y > adbarThreshold) {
+						if (!adbar.classList.contains('zaleski-adbar-hidden')) {
+							adbar.classList.add('zaleski-adbar-hidden');
+						}
+					} else {
+						if (adbar.classList.contains('zaleski-adbar-hidden')) {
+							adbar.classList.remove('zaleski-adbar-hidden');
+						}
+					}
 				}
+
+				if (typeof offsetCategories === 'function') {
+					offsetCategories();
+				}
+
 				lastY = y;
+				ticking = false;
+			}
+
+			window.addEventListener('scroll', function() {
+				if (!ticking) {
+					requestAnimationFrame(onScroll);
+					ticking = true;
+				}
 			});
 		})();
 		</script>

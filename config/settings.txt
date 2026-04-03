@@ -78,7 +78,6 @@ Tipo de letra
 		name = font_headings
 		title = Fuentes para títulos
 		description = Fuente
-		default = "Montserrat", sans-serif
 		values
 			"Almarai", sans-serif = Almarai
 			"Archivo", sans-serif = Archivo
@@ -113,6 +112,7 @@ Tipo de letra
 			"Kanit", sans-serif = Kanit
 			"Karla", sans-serif = Karla
 			"Lato", sans-serif = Lato
+			"League Spartan", sans-serif = League Spartan
 			"Lexend", sans-serif = Lexend
 			"Lexend Exa", sans-serif = Lexend Exa
 			"Libre Baskerville", serif = Libre Baskerville
@@ -177,7 +177,6 @@ Tipo de letra
 		name = font_rest
 		title = Fuentes para textos
 		description = Fuente
-		default = "Montserrat", sans-serif
 		values
 			"Almarai", sans-serif = Almarai
 			"Archivo", sans-serif = Archivo
@@ -212,6 +211,7 @@ Tipo de letra
 			"Kanit", sans-serif = Kanit
 			"Karla", sans-serif = Karla
 			"Lato", sans-serif = Lato
+			"League Spartan", sans-serif = League Spartan
 			"Lexend", sans-serif = Lexend
 			"Lexend Exa", sans-serif = Lexend Exa
 			"Libre Baskerville", serif = Libre Baskerville
@@ -368,9 +368,6 @@ Encabezado
 	checkbox
 		name = ad_bar_animate
 		description = Animar texto de derecha a izquierda
-	checkbox
-		name = zaleski_marquee
-		description = Usar animação marquee (substitui o modo padrão acima)
 	subtitle
 		subtitle = Mensaje 1
 	i18n_input
@@ -410,75 +407,6 @@ Menú de navegación
 	checkbox
 		name = hamburger_desktop
 		description = Usar menú vertical como en celulares (menú hamburguesa)
-	title
-		title = Componentes PDP
-		
-	collapse
-		title = Zaleski: Rodapé e Newsletter
-		backto = _top
-	checkbox
-		name = zaleski_show_newsletter
-		description = Mostrar Newsletter no topo do rodapé
-	i18n_input
-		name = zaleski_nl_title
-		description = Título da Newsletter
-	i18n_input
-		name = zaleski_nl_subtitle
-		description = Subtítulo da Newsletter
-	i18n_input
-		name = zaleski_nl_placeholder
-		description = Placeholder do campo de e-mail
-	i18n_input
-		name = zaleski_nl_button
-		description = Texto do botão da Newsletter
-	title
-		title = Colunas de Links
-	menu
-		name = zaleski_footer_menu_1
-		description = Selecione o Menu da Coluna 1
-	i18n_input
-		name = zaleski_footer_title_1
-		description = Título da Coluna 1 (ex: Categorias)
-	menu
-		name = zaleski_footer_menu_2
-		description = Selecione o Menu da Coluna 2
-	i18n_input
-		name = zaleski_footer_title_2
-		description = Título da Coluna 2 (ex: Informações)
-	title
-		title = Coluna de Contato
-	i18n_input
-		name = zaleski_footer_contact_title
-		description = Título da Coluna de Contato
-	i18n_input
-		name = zaleski_footer_email
-		description = E-mail de Contato
-	i18n_input
-		name = zaleski_footer_instagram
-		description = Link do Instagram
-	i18n_input
-		name = zaleski_footer_facebook
-		description = Link do Facebook
-	i18n_input
-		name = zaleski_footer_followers
-		description = Texto de seguidores (ex: +14k seguidores no Instagram)
-	title
-		title = Coluna de Pagamento
-	i18n_input
-		name = zaleski_footer_payment_title
-		description = Título da Coluna de Pagamentos
-	i18n_input
-		name = zaleski_footer_trust_text
-		description = Texto de segurança (ex: Compre com confiança)
-	i18n_input
-		name = zaleski_footer_payment_icons
-		description = Ícones de Pagamento (separados por vírgula, ex: Visa, Mastercard, Pix)
-	title
-		title = Rodapé Inferior
-	i18n_input
-		name = zaleski_footer_copyright
-		description = Texto de Copyright
-
 
 Página de inicio
 	meta
@@ -516,12 +444,6 @@ Página de inicio
 		gallery_more_info = true
 	subtitle
 		subtitle = <a target='_blank' data-toggle-info='show-on_slider_mobile-inactive' href='https://ayuda.tiendanube.com/es/articles/3297783-como-usar-el-carrusel-de-imagenes-para-las-plantillas-idea-bahia-y-amazonas'>¿Cómo diseñar las imágenes para tu carrusel?</a>
-	collapse
-		title = Ofertas relámpago
-		backto = home_order_position
-	checkbox
-		name = flash_offer
-		description = Mostrar banners de oferta relámpago
 	collapse
 		title = Categorías principales
 		backto = home_order_position
@@ -624,6 +546,7 @@ Página de inicio
 	i18n_input
 		name = banner_services_03_url
 		description = Link
+
 	collapse
 		title = Productos destacados
 		backto = home_order_position
@@ -728,6 +651,7 @@ Página de inicio
 			4 = 4 productos
 	subtitle
 		subtitle = <a target='_blank' href='/admin/themes/settings/product_order/'>Elegí cuáles vas a destacar</a>
+
 	collapse
 		title = Producto principal
 		backto = home_order_position
@@ -741,6 +665,7 @@ Página de inicio
 			random = En forma aleatoria
 	subtitle
 		subtitle = <a target='_blank' href='/admin/themes/settings/product_order/'>Elegí cuál vas a destacar</a>
+
 	collapse
 		title = Mensaje de bienvenida
 		backto = home_order_position
@@ -750,6 +675,7 @@ Página de inicio
 	i18n_input
 		name = welcome_text
 		description = Descripción
+
 	collapse
 		title = Mensaje institucional
 		backto = home_order_position
@@ -759,6 +685,7 @@ Página de inicio
 	i18n_input
 		name = institutional_text
 		description = Descripción
+
 	collapse
 		title = Banners de categorías
 		backto = home_order_position
@@ -1098,7 +1025,6 @@ Página de inicio
 		description = Permitir que tus clientes se suscriban al newsletter
 	subtitle
 		subtitle = <span class='legend'>El texto y link del botón no se van a mostrar si está habilitada la suscripción al newsletter</span>
-	
 	collapse
 		title = Página de inicio
 		backto = _top
@@ -1371,6 +1297,9 @@ Página de inicio
 	collapse
 		title = Zaleski: Carrossel de Temas
 		backto = home_order_position
+	checkbox
+		name = enable_theme_banners
+		description = Ativar layout de Coleção Temática para categorias com a tag [TEMA] na descripción
 	i18n_input
 		name = theme_section_title
 		description = Título da Seção
@@ -1568,12 +1497,10 @@ Página de inicio
 		name = about_stamp_bottom
 		description = Carimbo - Linha Inferior
 
-	collapse
-		title = Zaleski: Banners de Tema
-		backto = _top
-	checkbox
-		name = enable_theme_banners
-		description = Ativar layout de Coleção Temática para categorias com a tag [TEMA] na descrição
+
+	link
+		text = Pop-up promocional
+		linkto = home_promotional_popup
 
 Listado de productos
 	meta
@@ -1646,6 +1573,7 @@ Listado de productos
 	checkbox
 		name = product_installments
 		description = Mostrar cuotas en listado de productos
+
 	collapse
 		title = Zaleski: SEO da Categoria
 	i18n_input
@@ -1822,31 +1750,71 @@ Pie de página
 	meta
 		icon = arrow-down
 		advanced = true
+
+	collapse
+		title = Zaleski: Rodapé e Newsletter
+	checkbox
+		name = zaleski_show_newsletter
+		description = Mostrar Newsletter no topo do rodapé
+	i18n_input
+		name = zaleski_nl_title
+		description = Título da Newsletter
+	i18n_input
+		name = zaleski_nl_subtitle
+		description = Subtítulo da Newsletter
+	i18n_input
+		name = zaleski_nl_placeholder
+		description = Placeholder do campo de e-mail
+	i18n_input
+		name = zaleski_nl_button
+		description = Texto do botão da Newsletter
 	title
-		title = Medios de envío
-	checkbox_global
-		name = shipping_show
-		description = Mostrar medios de envío en tu tienda
+		title = Colunas de Links
+	menu
+		name = zaleski_footer_menu_1
+		description = Selecione o Menu da Coluna 1
+	i18n_input
+		name = zaleski_footer_title_1
+		description = Título da Coluna 1 (ex: Categorias)
+	menu
+		name = zaleski_footer_menu_2
+		description = Selecione o Menu da Coluna 2
+	i18n_input
+		name = zaleski_footer_title_2
+		description = Título da Coluna 2 (ex: Informações)
 	title
-		title = Medios de pago
-	checkbox_global
-		name = payments_show
-		description = Mostrar medios de pago en tu tienda
+		title = Coluna de Contato
+	i18n_input
+		name = zaleski_footer_contact_title
+		description = Título da Coluna de Contato
+	i18n_input
+		name = zaleski_footer_email
+		description = E-mail de Contato
+	i18n_input
+		name = zaleski_footer_instagram
+		description = Link do Instagram
+	i18n_input
+		name = zaleski_footer_facebook
+		description = Link do Facebook
+	i18n_input
+		name = zaleski_footer_followers
+		description = Texto de seguidores (ex: +14k seguidores no Instagram)
 	title
-		title = Sellos personalizados en el footer
-	description
-		description = Podés agregar sellos de dos formas: subiendo una imagen o pegando el código Javascript o HTML
-	image
-		title = Imagen del sello
-		original = seal_img.jpg
-		width = 24
-		height = 24
-		url = seal_url
-		url_description = [Opcional] Página web externa a la que llevará la imagen del sello al hacer clic
-	subtitle
-		subtitle = Código Javascript o HTML del sello
-	textarea
-		name = custom_seal_code
+		title = Coluna de Pagamento
+	i18n_input
+		name = zaleski_footer_payment_title
+		description = Título da Coluna de Pagamentos
+	i18n_input
+		name = zaleski_footer_trust_text
+		description = Texto de seguridad (ex: Compre com confiança)
+	i18n_input
+		name = zaleski_footer_payment_icons
+		description = Ícones de Pagamento (separados por vírgula, ex: Visa, Mastercard, Pix)
+	title
+		title = Rodapé Inferior
+	i18n_input
+		name = zaleski_footer_copyright
+		description = Texto de Copyright
 
 Edición avanzada de CSS
 	meta

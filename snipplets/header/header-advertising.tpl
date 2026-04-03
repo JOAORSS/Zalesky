@@ -1,56 +1,84 @@
-{% set num_messages = 0 %}
-{% for adbar in ['ad', 'ad_02', 'ad_03'] %}
-    {% set advertising_text = attribute(settings,"#{adbar}_text") %}
-    {% if advertising_text %}
-        {% set has_advertising_bar = true %}
-        {% set num_messages = num_messages + 1 %}
-    {% endif %}
-{% endfor %}
-{% set adbar_animated = settings.ad_bar_animate %}
-{% set adbar_section_classes = adbar_animated ? 'section-adbar-animated' %}
-{% set adbar_container_classes = adbar_animated ? 'js-adbar-animated adbar-animated' : 'js-swiper-adbar swiper-container' %}
-{% set adbar_text_container_classes = adbar_animated ? 'js-adbar-text-container' : 'swiper-wrapper' %}
-{% set adbar_text_classes = adbar_animated ? 'mr-4' : 'swiper-slide slide-container' %}
+<style>
+.zaleski-adbar-wrapper {
+  position: sticky;
+  top: 0;
+  z-index: 101;
+  width: 100%;
+}
 
-<section class="js-adbar section-adbar {{ adbar_section_classes }}">
-    <div class="container-fluid{% if num_messages > 1 and not adbar_animated %} px-1 px-md-3{% endif %}">
-        <div class="{{ adbar_container_classes }} font-small text-center">
-            <div class="{{ adbar_text_container_classes }}">
-                {% if adbar_animated %}
-                    {% if num_messages == 1 %}
-                        {% set repeat_number = 16 %}
-                    {% else %}
-                        {% set repeat_number = num_messages == 2 ? '8' : '5' %}
-                    {% endif %}
-                {% else %}
-                    {% set repeat_number = 1 %}
-                {% endif %}
-                {% for i in 1..repeat_number %}
-                    {% for adbar in ['ad', 'ad_02', 'ad_03'] %}
-                        {% set advertising_text = attribute(settings,"#{adbar}_text") %}
-                        {% set advertising_url = attribute(settings,"#{adbar}_url") %}
-                        {% if advertising_text %}
-                            <span class="adbar-message {{ adbar_text_classes }} {% if num_messages > 1 and not adbar_animated %}px-4{% endif %}">
-                                {% if advertising_url %}
-                                    <a href="{{ advertising_url }}" {% if not adbar_animated %}class="d-block w-100"{% endif %}>
-                                {% endif %}
-                                        {{ advertising_text }}
-                                {% if advertising_url %}
-                                    </a>
-                                {% endif %}
-                            </span>
-                        {% endif %}
-                    {% endfor %}
-                {% endfor %}
-            </div>
-            {% if num_messages > 1 and not adbar_animated %}
-                <div class="js-swiper-adbar-prev swiper-button-absolute swiper-button-prev svg-icon-text">
-                    <svg class="icon-inline icon-lg icon-flip-horizontal"><use xlink:href="#chevron"/></svg>
-                </div>
-                <div class="js-swiper-adbar-next swiper-button-absolute swiper-button-next svg-icon-text ml-2">
-                    <svg class="icon-inline icon-lg"><use xlink:href="#chevron"/></svg>
-                </div>
-            {% endif %}
-        </div>
+.ann {
+  background: #000;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  font-size: 11px;
+  letter-spacing: 0.5px;
+  overflow: hidden;
+  max-height: 50px;
+  opacity: 1;
+  transition: max-height 0.4s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+.ann-track {
+  display: flex;
+  animation: scroll 28s linear infinite;
+  white-space: nowrap;
+  height: 34px;
+  align-items: center;
+}
+
+.ann-item {
+  padding: 0 28px;
+  flex-shrink: 0;
+}
+
+.ann-sep {
+  padding: 0 4px;
+  opacity: 0.3;
+  flex-shrink: 0;
+}
+
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.zaleski-adbar-wrapper.scrolled .ann {
+  max-height: 0 !important;
+  opacity: 0 !important;
+}
+</style>
+
+<div class="zaleski-adbar-wrapper" id="zaleski-custom-adbar">
+  <div class="ann">
+    <div class="ann-track">
+      {% set ad_texts = [] %}
+      {% if settings.ad_text %}{% set ad_texts = ad_texts | merge([settings.ad_text]) %}{% endif %}
+      {% if settings.ad_02_text %}{% set ad_texts = ad_texts | merge([settings.ad_02_text]) %}{% endif %}
+      {% if settings.ad_03_text %}{% set ad_texts = ad_texts | merge([settings.ad_03_text]) %}{% endif %}
+      
+      {% if ad_texts is empty %}
+        {% set ad_texts = ['Frete grátis acima de R$500', '5% OFF no PIX', 'Até 6x sem juros', 'Feito sob demanda em Porto Alegre'] %}
+      {% endif %}
+
+      {% for i in 1..4 %}
+        {% for text in ad_texts %}
+          <div class="ann-item">{{ text }}</div><div class="ann-sep">·</div>
+        {% endfor %}
+      {% endfor %}
     </div>
-</section>
+  </div>
+</div>
+
+<script>
+  window.addEventListener('scroll', function() {
+    var adbar = document.getElementById('zaleski-custom-adbar');
+    if (adbar) {
+      if (window.scrollY > 40) {
+        adbar.classList.add('scrolled');
+      } else {
+        adbar.classList.remove('scrolled');
+      }
+    }
+  });
+</script>

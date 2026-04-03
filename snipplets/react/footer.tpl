@@ -47,7 +47,8 @@ window.addEventListener('load', function() {
                 trustText: "{{ settings.zaleski_footer_trust_text | default('Compre com confiança — site 100% seguro') | escape('js') }}",
                 icons: "{{ settings.zaleski_footer_payment_icons | default('Visa, Mastercard, Amex, Elo, Pix, Boleto') | escape('js') }}".split(',').map(function(i){ return i.trim(); })
             },
-            copyright: "{{ settings.zaleski_footer_copyright | default('Copyright Zaleski Arte Artigos do Vestuário Ltda — 40729894000170 — 2026. Todos os direitos reservados.') | escape('js') }}"
+            copyright: "{{ settings.zaleski_footer_copyright | default('Copyright Zaleski Arte Artigos do Vestuário Ltda — 40729894000170 — 2026. Todos os direitos reservados.') | escape('js') }}",
+            footerImage: "{{ 'images/Nextt.png' | static_url }}"
         };
 
         window.renderZaleskiFooter('react-zaleski-footer', props);
